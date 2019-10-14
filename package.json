@@ -10,6 +10,7 @@
     "watch": "webpack-dev-server --mode development --history-api-fallback",
     "lint": "yarn tslint ./src/**/*.{ts,tsx}",
     "fix": "yarn tslint --fix ./src/javascripts/**/*.{ts,tsx}",
+    "storybook": "start-storybook -p 6006",
     "test": "jest"
   },
   "husky": {
@@ -51,8 +52,14 @@
     "redux-promise": "^0.6.0"
   },
   "devDependencies": {
+    "@babel/core": "^7.6.4",
+    "@storybook/addon-actions": "^5.2.4",
+    "@storybook/addon-backgrounds": "^5.2.4",
+    "@storybook/addon-knobs": "^5.2.4",
+    "@storybook/react": "^5.2.4",
     "@types/animejs": "^2.0.1",
     "@types/classnames": "^2.2.6",
+    "@types/glob": "^7.1.1",
     "@types/keymirror": "^0.1.1",
     "@types/lodash": "^4.14.118",
     "@types/moment": "^2.13.0",
@@ -64,7 +71,8 @@
     "@types/react-router-dom": "^4.3.1",
     "@types/react-s-alert": "^1.3.2",
     "@types/redux-promise": "^0.5.28",
-    "@types/glob": "^7.1.1",
+    "@types/storybook__react": "^4.0.2",
+    "babel-loader": "^8.0.6",
     "css-loader": "^1.0.0",
     "enzyme": "^3.8.0",
     "enzyme-adapter-react-16": "^1.7.1",
