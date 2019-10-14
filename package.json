@@ -35,6 +35,8 @@
   },
   "description": "== README",
   "dependencies": {
+    "@emotion/core": "^10.0.21",
+    "@emotion/styled": "^10.0.17",
     "animejs": "^2.2.0",
     "axios": "^0.18.0",
     "classnames": "^2.2.6",
