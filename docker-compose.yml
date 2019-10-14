@@ -11,4 +11,3 @@ services:
     - "4000:4000"
     command: sh -c "npm install && npm run watch"
     tty: true
-

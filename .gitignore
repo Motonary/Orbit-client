@@ -3,3 +3,5 @@
 
 # Ignore snapchat
 src/__tests__/**/__snapshots__
+
+.node-version
