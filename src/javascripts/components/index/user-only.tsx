@@ -1,10 +1,10 @@
 import * as React from "react";
 import { Route, Switch, Redirect } from "react-router-dom";
 import { connect } from "react-redux";
-import Mypage from "../pages/users/mypage";
-import ProjectPage from "../pages/users/project-page";
-import HistoryPage from "../pages/users/history-page";
-import SettingPage from "../pages/users/setting-page";
+import Mypage from "../pages/users/MyPage";
+import ProjectPage from "../pages/users/ProjectPage";
+import HistoryPage from "../pages/users/HistroyPage";
+import SettingPage from "../pages/users/SettingPage";
 
 interface Props {
   currentUser: any;

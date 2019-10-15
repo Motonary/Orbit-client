@@ -8,6 +8,7 @@ import {
   setDefaultProject
 } from "../../../actions/projects";
 
+import { Root } from "./CommonStyleComponents";
 import Header from "../../organisms/header";
 import ProjectPageMain from "../../organisms/project-page-main";
 import Footer from "../../organisms/footer";
@@ -67,7 +68,7 @@ class ProjectPage extends React.Component<Props, {}> {
     if (!currentProject) return <div>Loading....</div>;
 
     return (
-      <div id="project-page-container">
+      <Root>
         <Header
           currentUser={currentUser}
           history={history}
@@ -79,7 +80,7 @@ class ProjectPage extends React.Component<Props, {}> {
           pathname={pathname}
           history={history}
         />
-      </div>
+      </Root>
     );
   }
 }
