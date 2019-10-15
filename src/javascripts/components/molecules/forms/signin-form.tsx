@@ -1,21 +1,21 @@
-import * as React from 'react'
-import { connect } from 'react-redux'
-import { Formik } from 'formik'
+import * as React from "react";
+import { connect } from "react-redux";
+import { Formik } from "formik";
 
-import InputField from '../../atoms/input-field'
-import FormSubmitBtn from '../../atoms/buttons/form-submit-btn'
+import InputField from "../../atoms/input-field";
+import FormSubmitBtn from "../../atoms/buttons/form-submit-btn";
 
-import { createSession } from '../../../actions/users'
+import { createSession } from "../../../actions/users";
 
 interface SignInFormProps {
-  history: any // historyの型付け
+  history: any; // historyの型付け
 
-  createSession: any
+  createSession: any;
 }
 
 interface CreateSessionValues {
-  email: string
-  password: string
+  email: string;
+  password: string;
 }
 
 class SignInForm extends React.Component<SignInFormProps, {}> {
@@ -23,37 +23,45 @@ class SignInForm extends React.Component<SignInFormProps, {}> {
     return (
       <div className="signin-form">
         <Formik
-          initialValues={{ email: '', password: '' }}
+          initialValues={{ email: "", password: "" }}
           onSubmit={(values: CreateSessionValues, actions: any) => {
             this.props
               .createSession(values.email, values.password)
               .then(() => actions.setSubmitting(false))
-              .catch(() => actions.setSubmitting(false))
+              .catch(() => actions.setSubmitting(false));
           }}
           validate={(values: CreateSessionValues) => {
-            const errors: any = {}
+            const errors: any = {};
 
             if (!values.email) {
-              errors.email = 'Email required'
+              errors.email = "Email required";
             } else if (values.email && values.email.length > 255) {
-              errors.email = 'Too long email address'
+              errors.email = "Too long email address";
             } else if (
               values.email &&
               !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(values.email)
             ) {
-              errors.email = 'Invalid email address'
+              errors.email = "Invalid email address";
             }
 
             if (!values.password) {
-              errors.password = 'Password required to update profile'
+              errors.password = "Password required to update profile";
             } else if (values.password.length < 6) {
-              errors.password = 'Password must contain at least 6 characters'
+              errors.password = "Password must contain at least 6 characters";
             }
 
-            return errors
+            return errors;
           }}
         >
-          {({ values, errors, touched, handleChange, handleBlur, handleSubmit, isSubmitting }) => (
+          {({
+            values,
+            errors,
+            touched,
+            handleChange,
+            handleBlur,
+            handleSubmit,
+            isSubmitting
+          }) => (
             <form onSubmit={handleSubmit}>
               <InputField
                 type="email"
@@ -63,7 +71,9 @@ class SignInForm extends React.Component<SignInFormProps, {}> {
                 onChange={handleChange}
                 onBlur={handleBlur}
               />
-              <div style={{ color: 'red' }}>{errors.email && touched.email && errors.email}</div>
+              <div style={{ color: "red" }}>
+                {errors.email && touched.email && errors.email}
+              </div>
               <InputField
                 type="password"
                 name="password"
@@ -72,7 +82,7 @@ class SignInForm extends React.Component<SignInFormProps, {}> {
                 onChange={handleChange}
                 onBlur={handleBlur}
               />
-              <div style={{ color: 'red' }}>
+              <div style={{ color: "red" }}>
                 {errors.password && touched.password && errors.password}
               </div>
               <FormSubmitBtn label="SIGN IN" isSubmit={isSubmitting} />
@@ -80,11 +90,11 @@ class SignInForm extends React.Component<SignInFormProps, {}> {
           )}
         </Formik>
       </div>
-    )
+    );
   }
 }
 
 export default connect(
   null,
   { createSession }
-)(SignInForm)
+)(SignInForm);

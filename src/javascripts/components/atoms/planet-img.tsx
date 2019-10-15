@@ -1,9 +1,11 @@
-import * as React from 'react'
+import * as React from "react";
 
 interface PlanetImgProps {
-  src: string
+  src: string;
 }
 
-const PlanetImg: React.SFC<PlanetImgProps> = ({ src = '' }) => <img src={src} />
+const PlanetImg: React.SFC<PlanetImgProps> = ({ src = "" }) => (
+  <img src={src} />
+);
 
-export default PlanetImg
+export default PlanetImg;

@@ -1,49 +1,53 @@
-import * as React from 'react'
-import { bindActionCreators } from 'redux'
-import { connect } from 'react-redux'
-import { Formik } from 'formik'
+import * as React from "react";
+import { bindActionCreators } from "redux";
+import { connect } from "react-redux";
+import { Formik } from "formik";
 
-import InputField from '../../atoms/input-field'
-import SelectField from '../../atoms/select-field'
+import InputField from "../../atoms/input-field";
+import SelectField from "../../atoms/select-field";
 
-import { setSelectedStar, resetSelectedStar, resetModalStatus } from '../../../actions/common'
-import { createSubAssignment } from '../../../actions/subassignmnets'
+import {
+  setSelectedStar,
+  resetSelectedStar,
+  resetModalStatus
+} from "../../../actions/common";
+import { createSubAssignment } from "../../../actions/subassignmnets";
 
-import FormSubmitBtn from '../../atoms/buttons/form-submit-btn'
+import FormSubmitBtn from "../../atoms/buttons/form-submit-btn";
 
 interface AssignmentFormProps {
-  assignmentId: string
+  assignmentId: string;
 
-  selectedStar: any
-  currentProject: any
+  selectedStar: any;
+  currentProject: any;
 
-  setSelectedStar: any
-  resetSelectedStar: any
-  resetModalStatus: any
-  createSubAssignment: any
+  setSelectedStar: any;
+  resetSelectedStar: any;
+  resetModalStatus: any;
+  createSubAssignment: any;
 }
 
 interface CreateSubAssignmentValues {
-  title: string
-  description: string
-  deadline: string
-  planet_size: string
+  title: string;
+  description: string;
+  deadline: string;
+  planet_size: string;
 }
 
 class SubAssignmentForm extends React.Component<AssignmentFormProps> {
   render() {
-    const satelite_type: any = this.props.selectedStar // reducerでの型付けと対応
-    const { assignmentId } = this.props
+    const satelite_type: any = this.props.selectedStar; // reducerでの型付けと対応
+    const { assignmentId } = this.props;
 
     return (
       <div id="form-on-modal">
         <div className="form-title">New SubAssignment</div>
         <Formik
           initialValues={{
-            title: '',
-            description: '',
-            deadline: '',
-            planet_size: '',
+            title: "",
+            description: "",
+            deadline: "",
+            planet_size: ""
           }}
           onSubmit={(values: CreateSubAssignmentValues, actions: any) => {
             this.props.createSubAssignment(
@@ -53,13 +57,21 @@ class SubAssignmentForm extends React.Component<AssignmentFormProps> {
               satelite_type,
               values.planet_size,
               assignmentId
-            )
-            this.props.resetSelectedStar()
-            this.props.resetModalStatus()
-            actions.setSubmitting(false)
+            );
+            this.props.resetSelectedStar();
+            this.props.resetModalStatus();
+            actions.setSubmitting(false);
           }}
         >
-          {({ values, errors, touched, handleChange, handleBlur, handleSubmit, isSubmitting }) => (
+          {({
+            values,
+            errors,
+            touched,
+            handleChange,
+            handleBlur,
+            handleSubmit,
+            isSubmitting
+          }) => (
             <form onSubmit={handleSubmit}>
               <div className="form-line-1">
                 <InputField
@@ -104,22 +116,27 @@ class SubAssignmentForm extends React.Component<AssignmentFormProps> {
           )}
         </Formik>
       </div>
-    )
+    );
   }
 }
 
 const mapStateToProps = ({ selectedStar, currentProject }: any) => {
-  return { selectedStar, currentProject }
-}
+  return { selectedStar, currentProject };
+};
 
 const mapDispatchToProps = (dispatch: any) => {
   return bindActionCreators(
-    { setSelectedStar, resetSelectedStar, resetModalStatus, createSubAssignment },
+    {
+      setSelectedStar,
+      resetSelectedStar,
+      resetModalStatus,
+      createSubAssignment
+    },
     dispatch
-  )
-}
+  );
+};
 
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(SubAssignmentForm)
+)(SubAssignmentForm);

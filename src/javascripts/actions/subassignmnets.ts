@@ -1,14 +1,14 @@
-import axios from 'axios'
-import { actionTypes } from '../constants/action-types'
-import { BaseAction } from '../constants/static-types'
-import { ROOT_URL } from '../constants/url'
+import axios from "axios";
+import { actionTypes } from "../constants/action-types";
+import { BaseAction } from "../constants/static-types";
+import { ROOT_URL } from "../constants/url";
 
 interface CreateSubAssignmentAction extends BaseAction {
-  type: string
-  payload: { newSubAssignment: Object }
+  type: string;
+  payload: { newSubAssignment: Object };
 }
 
-export type SubAssignmentAction = CreateSubAssignmentAction
+export type SubAssignmentAction = CreateSubAssignmentAction;
 
 export function createSubAssignment(
   title: any,
@@ -18,24 +18,24 @@ export function createSubAssignment(
   assignmentId: any
 ): Promise<CreateSubAssignmentAction | void> {
   return axios({
-    method: 'post',
+    method: "post",
     url: `${ROOT_URL}/api/subassignments`,
-    headers: { Authorization: `Bearer ${sessionStorage.getItem('jwt')}` },
+    headers: { Authorization: `Bearer ${sessionStorage.getItem("jwt")}` },
     data: {
       sub_assignment: {
         title,
         description,
         deadline,
-        planet_type,
+        planet_type
       },
-      assignment_id: assignmentId,
-    },
+      assignment_id: assignmentId
+    }
   })
     .then(res => {
       return {
         type: actionTypes.CREATE_SUBASSIGNMENT,
-        payload: { newSubAssignment: res.data },
-      }
+        payload: { newSubAssignment: res.data }
+      };
     })
-    .catch(() => alert('Sorry, something went wrong. Please reload.'))
+    .catch(() => alert("Sorry, something went wrong. Please reload."));
 }

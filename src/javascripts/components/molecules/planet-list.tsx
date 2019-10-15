@@ -1,36 +1,36 @@
-import * as React from 'react'
-import { connect } from 'react-redux'
+import * as React from "react";
+import { connect } from "react-redux";
 
-import Planet from './planet'
+import Planet from "./planet";
 
-import { setSelectedStar, resetSelectedStar } from '../../actions/common'
+import { setSelectedStar, resetSelectedStar } from "../../actions/common";
 
 interface PlanetListProps {
-  planetType: string
+  planetType: string;
 
-  selectedStar: any
+  selectedStar: any;
 
-  setSelectedStar: any
-  resetSelectedStar: any
+  setSelectedStar: any;
+  resetSelectedStar: any;
 }
 
 class PlanetList extends React.Component<PlanetListProps, {}> {
   componentDidMount() {
-    this.setDragnDrop()
+    this.setDragnDrop();
   }
 
   setDragnDrop() {
     // Draggable Element
-    const target = document.getElementById(this.props.planetType)
+    const target = document.getElementById(this.props.planetType);
 
     // Start of dragging
     target.addEventListener(
-      'dragstart',
+      "dragstart",
       () => {
-        this.props.setSelectedStar(this.props.planetType)
+        this.props.setSelectedStar(this.props.planetType);
       },
       false
-    )
+    );
 
     // During dragging
     // target.addEventListener('drag', () => {}, false)
@@ -40,17 +40,17 @@ class PlanetList extends React.Component<PlanetListProps, {}> {
   }
 
   render() {
-    const { planetType } = this.props
+    const { planetType } = this.props;
 
     return (
       <li id={planetType} className="planet" draggable={true}>
         <Planet className="planet-img" planetType={planetType} />
       </li>
-    )
+    );
   }
 }
 
 export default connect(
   ({ selectedStar }: any) => ({ selectedStar }),
   { setSelectedStar, resetSelectedStar }
-)(PlanetList)
+)(PlanetList);

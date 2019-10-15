@@ -1,23 +1,23 @@
-import * as React from 'react'
-import { connect } from 'react-redux'
-import { withRouter } from 'react-router-dom'
-import { fetchCurrentUser } from '../../actions/users'
+import * as React from "react";
+import { connect } from "react-redux";
+import { withRouter } from "react-router-dom";
+import { fetchCurrentUser } from "../../actions/users";
 
 interface Props {
-  currentUser: any
-  fetchCurrentUser: any
+  currentUser: any;
+  fetchCurrentUser: any;
 }
 
 class Main extends React.Component<Props, {}> {
   componentDidMount() {
-    if (sessionStorage.getItem('jwt')) this.props.fetchCurrentUser()
+    if (sessionStorage.getItem("jwt")) this.props.fetchCurrentUser();
   }
   render() {
-    return sessionStorage.getItem('jwt') && !this.props.currentUser ? (
+    return sessionStorage.getItem("jwt") && !this.props.currentUser ? (
       <div>Loading...</div>
     ) : (
       this.props.children
-    )
+    );
   }
 }
 
@@ -28,4 +28,4 @@ export default withRouter(
     ({ currentUser }: any, { location }: any) => ({ currentUser, location }),
     { fetchCurrentUser }
   )(Main)
-)
+);

@@ -1,8 +1,8 @@
 import styled from "@emotion/styled";
-import * as React from 'react'
+import * as React from "react";
 
 import Img from "../atoms/Image";
-import HeaderRightLinks from '../molecules/HeaderRightLinks'
+import HeaderRightLinks from "../molecules/HeaderRightLinks";
 
 interface Props extends React.Attributes {
   currentUser: any;
@@ -10,11 +10,12 @@ interface Props extends React.Attributes {
   pathname: any;
 }
 
-const Header:React.FC<Props> = ({ currentUser, history, pathname }) => {
-  const rootPath = `/users/${currentUser.id}`
-  const isLeftSideLinkShow = /^\/users\/[1-9]\d*\/projects$/.test(pathname) ||
-  pathname === `${rootPath}/history` ||
-  pathname === `${rootPath}/edit`
+const Header: React.FC<Props> = ({ currentUser, history, pathname }) => {
+  const rootPath = `/users/${currentUser.id}`;
+  const isLeftSideLinkShow =
+    /^\/users\/[1-9]\d*\/projects$/.test(pathname) ||
+    pathname === `${rootPath}/history` ||
+    pathname === `${rootPath}/edit`;
 
   function onLeftSideLinkClick() {
     history.push(rootPath);
@@ -23,13 +24,24 @@ const Header:React.FC<Props> = ({ currentUser, history, pathname }) => {
   return (
     <Root>
       <LeftSideLink onClick={onLeftSideLinkClick} isShow={isLeftSideLinkShow}>
-        <UserImg><Img src={currentUser.avator.url} alt={currentUser.name} width="40px" height="40px" /></UserImg>
+        <UserImg>
+          <Img
+            src={currentUser.avator.url}
+            alt={currentUser.name}
+            width="40px"
+            height="40px"
+          />
+        </UserImg>
         <UserName>{currentUser.name}</UserName>
       </LeftSideLink>
-      <HeaderRightLinks pathname={pathname} currentUser={currentUser} history={history} />
+      <HeaderRightLinks
+        pathname={pathname}
+        currentUser={currentUser}
+        history={history}
+      />
     </Root>
-  )
-}
+  );
+};
 
 const Root = styled.div`
   margin-top: 20px;
@@ -43,8 +55,8 @@ const Root = styled.div`
   z-index: 1000;
 `;
 
-const LeftSideLink = styled.div<{isShow: boolean}>`
-  display: ${(isShow) => isShow ? "flex" : "none"};
+const LeftSideLink = styled.div<{ isShow: boolean }>`
+  display: ${isShow => (isShow ? "flex" : "none")};
   justify-content: flex-start;
   flex-wrap: wrap;
   align-items: center;
@@ -84,4 +96,4 @@ const UserName = styled.div`
   letter-spacing: 5px;
 `;
 
-export default Header
+export default Header;
