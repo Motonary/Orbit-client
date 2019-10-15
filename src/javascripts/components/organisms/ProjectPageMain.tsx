@@ -1,5 +1,7 @@
+import styled from "@emotion/styled";
 import * as React from "react";
 import Alert from "react-s-alert";
+
 import FixedStar from "../molecules/fixed-star";
 import CircleOrbit from "../molecules/circle-orbit";
 import ProjectBar from "../molecules/project-bar";
@@ -11,16 +13,34 @@ interface Props {
 }
 
 const ProjectPageMain: React.SFC<Props> = ({ currentProject }) => (
-  <div id="project-container">
-    <div id="project-orbit">
+  <Root>
+    <ProjectOrits>
       <FixedStar project={currentProject} />
       <CircleOrbit orbit="primo" />
       <CircleOrbit orbit="secundus" />
       <CircleOrbit orbit="tertius" />
-    </div>
+    </ProjectOrits>
     <ProjectBar currentProject={currentProject} />
     <Alert />
-  </div>
+  </Root>
 );
+
+const Root = styled.div`
+  width: 100%;
+  height: 100%;
+  margin: 10px auto;
+`;
+
+const ProjectOrits = styled.div`
+  max-width: 1000px;
+  height: 100%;
+  position: relative;
+  overflow: scroll;
+  margin: 40px auto;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+`;
 
 export default ProjectPageMain;

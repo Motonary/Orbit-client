@@ -1,6 +1,8 @@
+import styled from "@emotion/styled";
 import * as React from "react";
 import { Redirect } from "react-router-dom";
 import Alert from "react-s-alert";
+
 import MypageUserInfo from "../molecules/mypage-user-info";
 import MypageOrbit from "../molecules/mypage-orbit";
 
@@ -24,12 +26,19 @@ const MyPageMain: React.SFC<MyPageMainProps> = ({
   }
 
   return (
-    <div id="mypage-container">
+    <Root>
       <MypageUserInfo currentUser={currentUser} />
       <MypageOrbit history={history} match={match} />
       <Alert />
-    </div>
+    </Root>
   );
 };
+
+const Root = styled.div`
+  width: 100%;
+  height: 100%;
+  margin: 10px auto;
+  position: relative;
+`;
 
 export default MyPageMain;

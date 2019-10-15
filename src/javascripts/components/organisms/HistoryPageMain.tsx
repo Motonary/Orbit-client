@@ -1,24 +1,28 @@
+import styled from "@emotion/styled";
 import * as React from "react";
-import { connect } from "react-redux";
 import Alert from "react-s-alert";
 
 import HistoryCanvas from "../molecules/history-canvas";
 import StoredPlanetList from "../molecules/stored-planet-list";
 
-interface HistoryPageMainProps {
+interface Props {
   history: any;
   match: any;
 }
 
-const HistoryPageMain: React.SFC<HistoryPageMainProps> = ({
-  history,
-  match
-}) => (
-  <div id="history-container">
+const HistoryPageMain: React.SFC<Props> = ({ history, match }) => (
+  <Root>
     <HistoryCanvas history={history} match={match} />
     <StoredPlanetList />
     <Alert />
-  </div>
+  </Root>
 );
+
+const Root = styled.div`
+  width: 100%;
+  height: 100%;
+  position: relative;
+  z-index: 400;
+`;
 
 export default HistoryPageMain;

@@ -2,9 +2,9 @@ import * as React from "react";
 import { connect } from "react-redux";
 
 import { Root } from "./CommonStyleComponents";
-import Header from "../../organisms/header";
-import SettingPageMain from "../../organisms/setting-page-main";
-import Footer from "../../organisms/footer";
+import Header from "../../organisms/Header";
+import SettingPageMain from "../../organisms/SettingPageMain";
+import Footer from "../../organisms/Footer";
 
 interface Props {
   currentUser: any;
