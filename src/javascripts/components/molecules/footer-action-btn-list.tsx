@@ -1,54 +1,64 @@
-import * as React from 'react'
-import { connect } from 'react-redux'
-import classNames from 'classnames'
+import * as React from "react";
+import { connect } from "react-redux";
+import classNames from "classnames";
 
-import Revival from './revival'
-import Meteorite from './meteorite'
-import Missle from './missile'
-import BlackHole from './blackhole'
+import Revival from "./revival";
+import Meteorite from "./meteorite";
+import Missle from "./missile";
+import BlackHole from "./blackhole";
 
-import { setModalStatus, setDestroyAction } from '../../actions/common'
+import { setModalStatus, setDestroyAction } from "../../actions/common";
 
-import { ActionIcons } from '../../constants/images'
+import { ActionIcons } from "../../constants/images";
 
-import '../../../stylesheets/destroy_animate.scss'
+import "../../../stylesheets/destroy_animate.scss";
 
 interface FooterActionBtnListProps {
-  pathname: any
-  rootPath: any
-  history: any
-  currentUser: any
-  motionControll: () => void
+  pathname: any;
+  rootPath: any;
+  history: any;
+  currentUser: any;
+  motionControll: () => void;
 
-  modalOpen: string
-  selectedProject: any
+  modalOpen: string;
+  selectedProject: any;
 
-  setModalStatus: any
-  setDestroyAction: any
+  setModalStatus: any;
+  setDestroyAction: any;
 }
 
-class FooterActionBtnList extends React.Component<FooterActionBtnListProps, {}> {
+class FooterActionBtnList extends React.Component<
+  FooterActionBtnListProps,
+  {}
+> {
   onClickOpenModal(actionType: string) {
-    this.props.setDestroyAction(actionType)
-    this.props.setModalStatus(actionType)
-    this.props.motionControll()
+    this.props.setDestroyAction(actionType);
+    this.props.setModalStatus(actionType);
+    this.props.motionControll();
   }
 
   render() {
-    const { pathname, rootPath, currentUser, history, selectedProject } = this.props
-    const actionType = Object.keys(ActionIcons)
+    const {
+      pathname,
+      rootPath,
+      currentUser,
+      history,
+      selectedProject
+    } = this.props;
+    const actionType = Object.keys(ActionIcons);
     const rivivalBtnClass = classNames({
-      'action-btn': true,
-      'revival-button-show': pathname === `${rootPath}/history`,
-    })
+      "action-btn": true,
+      "revival-button-show": pathname === `${rootPath}/history`
+    });
     const deleteBtnsClass: string = classNames({
-      'action-btn': true,
-      'delete-buttons-show':
-        pathname === `${rootPath}` || /^\/users\/[1-9]\d*\/projects$/.test(pathname),
-    })
+      "action-btn": true,
+      "delete-buttons-show":
+        pathname === `${rootPath}` ||
+        /^\/users\/[1-9]\d*\/projects$/.test(pathname)
+    });
     const blackHoleBtnClass: string = classNames({
-      'restrict-button-style': selectedProject.length !== 0,
-    })
+      "restrict-button-style": selectedProject.length !== 0
+    });
 
     return (
       <ul id="action-button-list">
@@ -56,7 +66,7 @@ class FooterActionBtnList extends React.Component<FooterActionBtnListProps, {}> 
           icon={ActionIcons[actionType[0]]}
           actionBtnClass={rivivalBtnClass}
           onClick={() => {
-            this.onClickOpenModal(actionType[0])
+            this.onClickOpenModal(actionType[0]);
           }}
         />
         <Meteorite
@@ -66,7 +76,7 @@ class FooterActionBtnList extends React.Component<FooterActionBtnListProps, {}> 
           currentUser={currentUser}
           motionControll={() => this.props.motionControll()}
           onClick={() => {
-            this.onClickOpenModal(actionType[1])
+            this.onClickOpenModal(actionType[1]);
           }}
         />
         <Missle
@@ -76,7 +86,7 @@ class FooterActionBtnList extends React.Component<FooterActionBtnListProps, {}> 
           currentUser={currentUser}
           motionControll={() => this.props.motionControll()}
           onClick={() => {
-            this.onClickOpenModal(actionType[2])
+            this.onClickOpenModal(actionType[2]);
           }}
         />
         <BlackHole
@@ -84,15 +94,15 @@ class FooterActionBtnList extends React.Component<FooterActionBtnListProps, {}> 
           actionBtnClass={`${deleteBtnsClass} ${blackHoleBtnClass}`}
           motionControll={() => this.props.motionControll()}
           onClick={() => {
-            this.onClickOpenModal(actionType[3])
+            this.onClickOpenModal(actionType[3]);
           }}
         />
       </ul>
-    )
+    );
   }
 }
 
 export default connect(
   ({ modalOpen, selectedProject }: any) => ({ modalOpen, selectedProject }),
   { setModalStatus, setDestroyAction }
-)(FooterActionBtnList)
+)(FooterActionBtnList);

@@ -1,15 +1,20 @@
-import * as React from 'react'
+import * as React from "react";
 
-import '../../../stylesheets/field.scss'
+import "../../../stylesheets/field.scss";
 
 interface SelectFieldProps {
-  name: string
-  value: string
-  onChange: (e: React.SyntheticEvent<HTMLSelectElement>) => void
-  onBlur: (e: React.SyntheticEvent<HTMLSelectElement>) => void
+  name: string;
+  value: string;
+  onChange: (e: React.SyntheticEvent<HTMLSelectElement>) => void;
+  onBlur: (e: React.SyntheticEvent<HTMLSelectElement>) => void;
 }
 
-const SelectField: React.SFC<SelectFieldProps> = ({ name, value, onChange, onBlur }) => {
+const SelectField: React.SFC<SelectFieldProps> = ({
+  name,
+  value,
+  onChange,
+  onBlur
+}) => {
   return (
     <div className="select-field-style">
       <select name={name} value={value} onChange={onChange} onBlur={onBlur}>
@@ -19,7 +24,7 @@ const SelectField: React.SFC<SelectFieldProps> = ({ name, value, onChange, onBlu
         <option value="small">small</option>
       </select>
     </div>
-  )
-}
+  );
+};
 
-export default SelectField
+export default SelectField;

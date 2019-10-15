@@ -1,4 +1,4 @@
-import * as React from 'react'
+import * as React from "react";
 
 const ProjectPageTutorial: React.SFC<{}> = () => {
   return (
@@ -11,7 +11,7 @@ const ProjectPageTutorial: React.SFC<{}> = () => {
       <li>左下のプラスボタンを押してみよう！</li>
       <li>出てきた惑星をドラッグ＆ドロップして軌道上に追加しよう！</li>
     </ul>
-  )
-}
+  );
+};
 
-export default ProjectPageTutorial
+export default ProjectPageTutorial;

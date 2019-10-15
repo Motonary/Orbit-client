@@ -7,18 +7,12 @@
     "tslint-config-prettier"
   ],
   "rules": {
-    "variable-name": false,
-    "one-variable-per-declaration": false,
+    "interface-name": false,
     "no-console": "error",
     "no-debugger": true,
-    "prettier": [
-      true,
-      {
-        "singleQuote": true,
-        "trailingComma": "es5",
-        "semi": false,
-        "printWidth": 100
-      }
-    ]
+    "one-variable-per-declaration": false,
+    "prettier": true,
+    "quotemark": [true, "double", "avoid-escape"],
+    "variable-name": false
   }
 }

@@ -2,8 +2,8 @@
 // BaseAction
 // ----------------------------------------------------------
 export interface BaseAction {
-  type: string
-  payload?: any
+  type: string;
+  payload?: any;
 }
 
 // ----------------------------------------------------------
@@ -12,14 +12,14 @@ export interface BaseAction {
 
 // Assignments
 export interface RevolvingAssignmentsState {
-  primo?: Array<Object | null>
-  secundus?: Array<Object | null>
-  tertius?: Array<Object | null>
+  primo?: Array<Object | null>;
+  secundus?: Array<Object | null>;
+  tertius?: Array<Object | null>;
 }
 
-export type SelectedAssignmentsState = Array<Object | null>
+export type SelectedAssignmentsState = Array<Object | null>;
 
-export type DestroyedAssignmentsState = Array<any>
+export type DestroyedAssignmentsState = Array<any>;
 
 // Projects
-export type SelectedProjectsAction = Array<any>
+export type SelectedProjectsAction = Array<any>;

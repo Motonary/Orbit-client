@@ -1,4 +1,4 @@
-import keyMirror from 'keymirror'
+import keyMirror from "keymirror";
 
 export const actionTypes = keyMirror({
   // Common
@@ -37,5 +37,5 @@ export const actionTypes = keyMirror({
   SET_REMOVED_ASSIGNMENTS: null,
 
   // SubAssignments
-  CREATE_SUBASSIGNMENT: null,
-})
+  CREATE_SUBASSIGNMENT: null
+});

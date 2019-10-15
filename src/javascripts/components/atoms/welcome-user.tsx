@@ -1,4 +1,4 @@
-import * as React from 'react'
+import * as React from "react";
 
 const WelcomeUser = ({ user }: any) => (
   <div className="user-name">
@@ -6,6 +6,6 @@ const WelcomeUser = ({ user }: any) => (
     <br />
     {user.name}
   </div>
-)
+);
 
-export default WelcomeUser
+export default WelcomeUser;
