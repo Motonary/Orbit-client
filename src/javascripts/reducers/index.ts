@@ -1,8 +1,12 @@
-import { combineReducers } from 'redux'
-import currentUser from './current-user'
-import { revolvingProjects, currentProject, selectedProject } from './projects'
-import { revolvingAssignments, destroyedAssignments, selectedAssignments } from './assignments'
-import { selectedStar, selectedDestroyAction, modalOpen } from './common'
+import { combineReducers } from "redux";
+import currentUser from "./current-user";
+import { revolvingProjects, currentProject, selectedProject } from "./projects";
+import {
+  revolvingAssignments,
+  destroyedAssignments,
+  selectedAssignments
+} from "./assignments";
+import { selectedStar, selectedDestroyAction, modalOpen } from "./common";
 
 const rootReducer = combineReducers({
   // commmon
@@ -21,7 +25,7 @@ const rootReducer = combineReducers({
   // Assignments
   revolvingAssignments,
   destroyedAssignments,
-  selectedAssignments,
-})
+  selectedAssignments
+});
 
-export default rootReducer
+export default rootReducer;

@@ -1,11 +1,11 @@
-import { actionTypes } from '../constants/action-types'
-import _ from 'lodash'
-import moment from 'moment'
+import { actionTypes } from "../constants/action-types";
+import _ from "lodash";
+import moment from "moment";
 import {
   RevolvingAssignmentsAction,
   SelectedAssignmentsAction,
-  DestroyedAssignmentsAction,
-} from '../actions/assignments'
+  DestroyedAssignmentsAction
+} from "../actions/assignments";
 // import {
 //   RevolvingAssignmentsState,
 //   SelectedAssignmentsState,
@@ -16,34 +16,40 @@ import {
  * revolvingAssignmentsの利用用途
  * stateには、{primo, secundus, tertius}の各軌道上のassignmentsが軌道名をkeyにして格納される
  */
-export function revolvingAssignments(state: any = null, action: RevolvingAssignmentsAction) {
-  let cloneState = Object.assign({}, state)
+export function revolvingAssignments(
+  state: any = null,
+  action: RevolvingAssignmentsAction
+) {
+  let cloneState = Object.assign({}, state);
   switch (action.type) {
     case actionTypes.FETCH_REVOLVING_ASSIGNMENTS:
-      if ('revolvingAssignments' in action.payload) {
-        return action.payload.revolvingAssignments
+      if ("revolvingAssignments" in action.payload) {
+        return action.payload.revolvingAssignments;
       }
-      break
+      break;
 
     case actionTypes.CREATE_ASSIGNMENT:
-      if ('newAssignment' in action.payload) {
-        const newAssignmentOrbit: 'primo' | 'secundus' | 'tertius' =
-          action.payload.newAssignment.orbit_pos
-        cloneState[newAssignmentOrbit].push(action.payload.newAssignment)
-        return cloneState
+      if ("newAssignment" in action.payload) {
+        const newAssignmentOrbit: "primo" | "secundus" | "tertius" =
+          action.payload.newAssignment.orbit_pos;
+        cloneState[newAssignmentOrbit].push(action.payload.newAssignment);
+        return cloneState;
       }
-      break
+      break;
 
     case actionTypes.DESTROY_ASSIGNMENT:
-      if ('destroyedAssignment' in action.payload) {
-        const { id, orbit_pos } = action.payload.destroyedAssignment
-        _.remove(cloneState[orbit_pos], (eachAssignment: any) => eachAssignment.id === id)
-        return cloneState
+      if ("destroyedAssignment" in action.payload) {
+        const { id, orbit_pos } = action.payload.destroyedAssignment;
+        _.remove(
+          cloneState[orbit_pos],
+          (eachAssignment: any) => eachAssignment.id === id
+        );
+        return cloneState;
       }
-      break
+      break;
 
     default:
-      return state
+      return state;
   }
 }
 
@@ -52,19 +58,22 @@ export function revolvingAssignments(state: any = null, action: RevolvingAssignm
  * stateには、ユーザがクリックし、UI上でチェックマーク付きのPlanetに紐付いた"3-Earth"のような
  * ”assignmentId-planetType”というstringが格納される
  */
-export function selectedAssignments(state: any = [], action: SelectedAssignmentsAction) {
+export function selectedAssignments(
+  state: any = [],
+  action: SelectedAssignmentsAction
+) {
   switch (action.type) {
     case actionTypes.SET_SELECTED_ASSIGNMENT:
-      return [...state, action.payload.assignmentId]
+      return [...state, action.payload.assignmentId];
 
     case actionTypes.REMOVE_SELECTED_ASSIGNMENT:
-      return state.filter((item: any) => item !== action.payload.assignmentId)
+      return state.filter((item: any) => item !== action.payload.assignmentId);
 
     case actionTypes.RESET_SELECTED_ASSIGNMENT:
-      return []
+      return [];
 
     default:
-      return state
+      return state;
   }
 }
 
@@ -72,29 +81,32 @@ export function selectedAssignments(state: any = [], action: SelectedAssignments
  * destroyedAssignmentsの利用用途
  * stateには、UI上からすでに削除され、履歴ページに表示されるためのAssignmentsが格納される
  */
-export function destroyedAssignments(state: any = null, action: DestroyedAssignmentsAction) {
-  let cloneState = Object.assign({}, state)
+export function destroyedAssignments(
+  state: any = null,
+  action: DestroyedAssignmentsAction
+) {
+  let cloneState = Object.assign({}, state);
   switch (action.type) {
     case actionTypes.FETCH_DESTROYED_ASSIGNMENTS:
-      if ('destroyedAssignments' in action.payload) {
-        return action.payload.destroyedAssignments
+      if ("destroyedAssignments" in action.payload) {
+        return action.payload.destroyedAssignments;
       }
-      break
+      break;
 
     case actionTypes.RESTORE_ASSIGNMENT:
-      if ('restoredAssignment' in action.payload) {
-        const { id, destroyed_at } = action.payload.restoredAssignment
-        const destroyedYear = moment(destroyed_at).format('YYYY')
-        const destroyedDate = moment(destroyed_at).format('MM/DD')
+      if ("restoredAssignment" in action.payload) {
+        const { id, destroyed_at } = action.payload.restoredAssignment;
+        const destroyedYear = moment(destroyed_at).format("YYYY");
+        const destroyedDate = moment(destroyed_at).format("MM/DD");
         _.remove(
           cloneState[destroyedYear][destroyedDate],
           (eachAssignment: any) => eachAssignment.id === id
-        )
-        return cloneState
+        );
+        return cloneState;
       }
-      break
+      break;
 
     default:
-      return state
+      return state;
   }
 }

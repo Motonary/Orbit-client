@@ -1,22 +1,26 @@
-import * as React from 'react'
-import { Redirect } from 'react-router-dom'
-import Alert from 'react-s-alert'
-import MypageUserInfo from '../molecules/mypage-user-info'
-import MypageOrbit from '../molecules/mypage-orbit'
+import * as React from "react";
+import { Redirect } from "react-router-dom";
+import Alert from "react-s-alert";
+import MypageUserInfo from "../molecules/mypage-user-info";
+import MypageOrbit from "../molecules/mypage-orbit";
 
-import '../../../stylesheets/mypage.scss'
+import "../../../stylesheets/mypage.scss";
 
 interface MyPageMainProps {
-  currentUser: any
-  match: any
-  history: any
+  currentUser: any;
+  match: any;
+  history: any;
 }
 
-const MyPageMain: React.SFC<MyPageMainProps> = ({ currentUser, match, history }) => {
-  if (!currentUser) return <div>Loading....</div>
+const MyPageMain: React.SFC<MyPageMainProps> = ({
+  currentUser,
+  match,
+  history
+}) => {
+  if (!currentUser) return <div>Loading....</div>;
 
   if (currentUser.id !== parseInt(match.params.userId, 10)) {
-    return <Redirect to={`/users/${currentUser.id}`} />
+    return <Redirect to={`/users/${currentUser.id}`} />;
   }
 
   return (
@@ -25,7 +29,7 @@ const MyPageMain: React.SFC<MyPageMainProps> = ({ currentUser, match, history })
       <MypageOrbit history={history} match={match} />
       <Alert />
     </div>
-  )
-}
+  );
+};
 
-export default MyPageMain
+export default MyPageMain;

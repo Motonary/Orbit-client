@@ -8,8 +8,6 @@ storiesOf("Atoms/ConfirmBtn", module)
   .addDecorator(withKnobs)
   .add("Default", () => {
     const message = text("message", "message");
-    
-    return(
-      <ConfirmBtn message={message} onClick={action} />
-    )
+
+    return <ConfirmBtn message={message} onClick={action} />;
   });
