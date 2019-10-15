@@ -2,9 +2,9 @@ import * as React from "react";
 import { connect } from "react-redux";
 
 import { Root } from "./CommonStyleComponents";
-import Header from "../../organisms/header";
+import Header from "../../organisms/Header";
 import MyPageMain from "../../organisms/MyPageMain";
-import Footer from "../../organisms/footer";
+import Footer from "../../organisms/Footer";
 
 import { fetchRevolvingProjects } from "../../../actions/projects";
 
