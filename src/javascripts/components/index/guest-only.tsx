@@ -1,15 +1,15 @@
-import * as React from 'react'
-import { Route, Switch, Redirect } from 'react-router-dom'
-import { connect } from 'react-redux'
-import TopPage from '../pages/guests/top-page'
+import * as React from "react";
+import { Route, Switch, Redirect } from "react-router-dom";
+import { connect } from "react-redux";
+import TopPage from "../pages/guests/top-page";
 
 interface Props {
-  currentUser: any
+  currentUser: any;
 }
 
 class GuestOnly extends React.Component<Props, {}> {
   render() {
-    const { currentUser } = this.props
+    const { currentUser } = this.props;
 
     return !currentUser ? (
       <Switch>
@@ -18,8 +18,8 @@ class GuestOnly extends React.Component<Props, {}> {
       </Switch>
     ) : (
       <Redirect to={`/users/${currentUser.id}`} />
-    )
+    );
   }
 }
 
-export default connect(({ currentUser }: any) => ({ currentUser }))(GuestOnly)
+export default connect(({ currentUser }: any) => ({ currentUser }))(GuestOnly);

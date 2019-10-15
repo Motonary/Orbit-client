@@ -1,13 +1,15 @@
-import * as React from 'react'
+import * as React from "react";
 
 interface PopupAssignmentCardProps {
-  assignment: any
+  assignment: any;
 }
-const PopupAssignmentCard: React.SFC<PopupAssignmentCardProps> = ({ assignment }: any) => {
-  if (!assignment) return
+const PopupAssignmentCard: React.SFC<PopupAssignmentCardProps> = ({
+  assignment
+}: any) => {
+  if (!assignment) return;
 
-  const deadline: any = assignment.deadline.split('T')[0].split('-')
-  const { title, description }: any = assignment
+  const deadline: any = assignment.deadline.split("T")[0].split("-");
+  const { title, description }: any = assignment;
 
   return (
     <div className="assignment-data">
@@ -17,7 +19,7 @@ const PopupAssignmentCard: React.SFC<PopupAssignmentCardProps> = ({ assignment }
       </div>
       <div className="assignment-description">{description}</div>
     </div>
-  )
-}
+  );
+};
 
-export default PopupAssignmentCard
+export default PopupAssignmentCard;

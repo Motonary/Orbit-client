@@ -1,70 +1,79 @@
-import * as React from 'react'
-import { connect } from 'react-redux'
-import anime from 'animejs'
+import * as React from "react";
+import { connect } from "react-redux";
+import anime from "animejs";
 
-import ActionBtn from '../atoms/buttons/action-btn'
+import ActionBtn from "../atoms/buttons/action-btn";
 
-import { restoreAssignment, resetSelectedAssignment } from '../../actions/assignments'
-import { resetDestroyAction } from '../../actions/common'
+import {
+  restoreAssignment,
+  resetSelectedAssignment
+} from "../../actions/assignments";
+import { resetDestroyAction } from "../../actions/common";
 
 interface RevivalProps {
-  icon: string
-  actionBtnClass: string
-  onClick: () => void
+  icon: string;
+  actionBtnClass: string;
+  onClick: () => void;
 
-  selectedAssignments: any
+  selectedAssignments: any;
 
-  modalOpen: any
-  selectedDestroyAction: any
+  modalOpen: any;
+  selectedDestroyAction: any;
 
-  resetSelectedAssignment: any
-  restoreAssignment: any
-  resetDestroyAction: any
+  resetSelectedAssignment: any;
+  restoreAssignment: any;
+  resetDestroyAction: any;
 }
 
 class Revival extends React.Component<RevivalProps, {}> {
   componentDidUpdate() {
-    if (this.props.selectedAssignments.length === 0) return
-    if (this.props.modalOpen !== '') return
-    if (this.props.selectedDestroyAction !== 'Revival') return
-    this.iginiteRevivalAnimation()
+    if (this.props.selectedAssignments.length === 0) return;
+    if (this.props.modalOpen !== "") return;
+    if (this.props.selectedDestroyAction !== "Revival") return;
+    this.iginiteRevivalAnimation();
   }
 
   iginiteRevivalAnimation() {
     Promise.resolve()
       .then(() => {
         this.props.selectedAssignments.forEach((assignment: string) => {
-          this.removeImg(assignment)
+          this.removeImg(assignment);
           setTimeout(() => {
-            this.props.restoreAssignment(assignment.split('-')[0])
-          }, 1000)
-        })
+            this.props.restoreAssignment(assignment.split("-")[0]);
+          }, 1000);
+        });
       })
       .then(() => {
-        this.props.resetDestroyAction()
-        this.props.resetSelectedAssignment()
-      })
+        this.props.resetDestroyAction();
+        this.props.resetSelectedAssignment();
+      });
   }
   removeImg(assignmentId: string) {
     anime({
       targets: `#planet-${assignmentId} .stored-planet`,
       rotate: {
-        value: '6turn',
+        value: "6turn",
         duration: 1500,
-        easing: 'easeInExpo',
+        easing: "easeInExpo"
       },
       opacity: {
         value: [1, 0],
         duration: 1500,
-        easing: 'easeInExpo',
-      },
-    })
+        easing: "easeInExpo"
+      }
+    });
   }
 
   render() {
-    const { icon, actionBtnClass, onClick } = this.props
+    const { icon, actionBtnClass, onClick } = this.props;
 
-    return <ActionBtn icon={icon} actionBtnClass={actionBtnClass} onClick={onClick} />
+    return (
+      <ActionBtn
+        icon={icon}
+        actionBtnClass={actionBtnClass}
+        onClick={onClick}
+      />
+    );
   }
 }
 
@@ -72,7 +81,7 @@ export default connect(
   ({ selectedAssignments, selectedDestroyAction, modalOpen }: any) => ({
     selectedAssignments,
     selectedDestroyAction,
-    modalOpen,
+    modalOpen
   }),
   { restoreAssignment, resetSelectedAssignment, resetDestroyAction }
-)(Revival)
+)(Revival);

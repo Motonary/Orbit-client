@@ -1,15 +1,15 @@
-import * as React from 'react'
-import classNames from 'classnames'
+import * as React from "react";
+import classNames from "classnames";
 
-import '../../../stylesheets/field.scss'
+import "../../../stylesheets/field.scss";
 
 interface InputFieldProps {
-  type: string
-  name: string
-  placeholder: string
-  value: string
-  onChange: (e: React.SyntheticEvent<HTMLInputElement>) => void
-  onBlur: (e: React.SyntheticEvent<HTMLInputElement>) => void
+  type: string;
+  name: string;
+  placeholder: string;
+  value: string;
+  onChange: (e: React.SyntheticEvent<HTMLInputElement>) => void;
+  onBlur: (e: React.SyntheticEvent<HTMLInputElement>) => void;
 }
 
 const InputField: React.SFC<InputFieldProps> = ({
@@ -18,31 +18,34 @@ const InputField: React.SFC<InputFieldProps> = ({
   placeholder,
   value,
   onChange,
-  onBlur,
+  onBlur
 }) => {
   const fieldClasses = classNames({
-    'field-style': true,
-    title: name === 'title',
-    description: name === 'description',
-    deadline: name === 'deadline',
-    username: name === 'username',
-    email: name === 'email',
-    password: name === 'password' || name === 'confirmation',
-  })
+    "field-style": true,
+    title: name === "title",
+    description: name === "description",
+    deadline: name === "deadline",
+    username: name === "username",
+    email: name === "email",
+    password: name === "password" || name === "confirmation"
+  });
 
   const inputClasses = classNames({
-    title: name === 'title',
-    description: name === 'description',
-    deadline: name === 'deadline',
-    username: name === 'username',
-    email: name === 'email',
-    password: name === 'password' || name === 'confirmation',
-  })
+    title: name === "title",
+    description: name === "description",
+    deadline: name === "deadline",
+    username: name === "username",
+    email: name === "email",
+    password: name === "password" || name === "confirmation"
+  });
 
   const inputRadius = classNames({
-    'input-radius':
-      name === 'username' || name === 'email' || name === 'password' || name === 'confirmation',
-  })
+    "input-radius":
+      name === "username" ||
+      name === "email" ||
+      name === "password" ||
+      name === "confirmation"
+  });
 
   return (
     <div className={fieldClasses}>
@@ -56,7 +59,7 @@ const InputField: React.SFC<InputFieldProps> = ({
         onBlur={onBlur}
       />
     </div>
-  )
-}
+  );
+};
 
-export default InputField
+export default InputField;
