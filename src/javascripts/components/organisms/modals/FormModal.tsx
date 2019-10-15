@@ -9,9 +9,6 @@ import ProjectForm from "../../molecules/forms/project-form";
 
 import { resetModalStatus, resetSelectedStar } from "../../../actions/common";
 
-import "../../../../stylesheets/modal.scss";
-import "../../../../stylesheets/form_on_modal.scss";
-
 interface Props {
   pathname: any;
 

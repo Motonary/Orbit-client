@@ -10,8 +10,6 @@ import ConfirmBtn from "../../atoms/buttons/confirm-btn";
 import { removeFirstVisitFlag } from "../../../actions/users";
 import { resetModalStatus, resetSelectedStar } from "../../../actions/common";
 
-import "../../../../stylesheets/tutorial_modal.scss";
-
 interface Props {
   currentUser: any;
   pathname: any;

@@ -7,8 +7,6 @@ import ConfirmBtn from "../../atoms/buttons/confirm-btn";
 
 import { resetDestroyAction, resetModalStatus } from "../../../actions/common";
 
-import "../../../../stylesheets/modal.scss";
-
 interface Props {
   motionControll: () => void;
 
