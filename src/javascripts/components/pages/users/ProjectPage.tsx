@@ -10,7 +10,7 @@ import {
 
 import { Root } from "./CommonStyleComponents";
 import Header from "../../organisms/header";
-import ProjectPageMain from "../../organisms/project-page-main";
+import ProjectPageMain from "../../organisms/ProjectPageMain";
 import Footer from "../../organisms/footer";
 
 interface Props {

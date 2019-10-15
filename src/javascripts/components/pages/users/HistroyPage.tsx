@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 
 import { Root } from "./CommonStyleComponents";
 import Header from "../../organisms/header";
-import HistoryPageMain from "../../organisms/history-page-main";
+import HistoryPageMain from "../../organisms/HistoryPageMain";
 import Footer from "../../organisms/footer";
 
 interface Props {

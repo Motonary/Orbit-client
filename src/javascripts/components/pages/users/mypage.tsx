@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 
 import { Root } from "./CommonStyleComponents";
 import Header from "../../organisms/header";
-import MyPageMain from "../../organisms/mypage-main";
+import MyPageMain from "../../organisms/MyPageMain";
 import Footer from "../../organisms/footer";
 
 import { fetchRevolvingProjects } from "../../../actions/projects";

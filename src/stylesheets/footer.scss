@@ -2,14 +2,7 @@ $available-planet-size: 40px;
 $holder-height: 100px;
 
 #footer {
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: 20px;
-  z-index: 500;
-  position: fixed;
-  bottom: 0;
-  right: 0;
+  
 
   #planet-holder {
     display: flex;
