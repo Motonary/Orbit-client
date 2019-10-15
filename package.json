@@ -1,5 +1,5 @@
 {
-  "name": "OrbitApiApp",
+  "name": "orbit-backend",
   "version": "1.0.0",
   "main": "index.js",
   "private": true,
@@ -8,8 +8,8 @@
   "scripts": {
     "release": "webpack --mode production --config webpack.config.js",
     "watch": "webpack-dev-server --mode development --history-api-fallback",
-    "lint": "yarn tslint ./src/**/*.{ts,tsx}",
-    "fix": "yarn tslint --fix ./src/javascripts/**/*.{ts,tsx}",
+    "lint": "tslint ./src/**/*.{ts,tsx}",
+    "fix": "tslint --fix ./src/javascripts/**/*.{ts,tsx}",
     "storybook": "start-storybook -p 6006",
     "test": "jest"
   },
