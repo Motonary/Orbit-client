@@ -5,7 +5,7 @@ import { Redirect } from 'react-router-dom'
 import { fetchRevolvingAssignments } from '../../../actions/assignments'
 import { fetchRevolvingProjects, setDefaultProject } from '../../../actions/projects'
 
-import Header from '../../organisms/header'
+import Header from '../../organisms/Header'
 import ProjectPageMain from '../../organisms/project-page-main'
 import Footer from '../../organisms/footer'
 

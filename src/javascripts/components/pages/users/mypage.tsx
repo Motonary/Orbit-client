@@ -1,7 +1,7 @@
 import * as React from 'react'
 import { connect } from 'react-redux'
 
-import Header from '../../organisms/header'
+import Header from '../../organisms/Header'
 import MyPageMain from '../../organisms/mypage-main'
 import Footer from '../../organisms/footer'
 
