@@ -2,7 +2,7 @@ import * as React from "react";
 import { connect } from "react-redux";
 import _ from "lodash";
 
-import Planet from "./planet";
+import Planet from "./Planet";
 import PopupBox from "../atoms/popup-box";
 
 interface StoredPlanetListProps {

@@ -1,6 +1,6 @@
 import * as React from "react";
 import classNames from "classnames";
-import { ImgHolderOpen } from "../../../constants/images";
+import { ImgHolderOpen } from "../../constants/images";
 
 interface Props {
   currentUser: any;

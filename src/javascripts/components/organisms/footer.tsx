@@ -1,7 +1,7 @@
 import styled from "@emotion/styled";
 import * as React from "react";
 
-import PlanetHolder from "../molecules/planet-holder";
+import PlanetHolder from "../molecules/PlanetHolder";
 import FooterActionBtnList from "../molecules/footer-action-btn-list";
 import ConfirmModal from "./modals/ConfirmModal";
 import FormModal from "./modals/FormModal";

@@ -1,7 +1,7 @@
 import * as React from "react";
 import { connect } from "react-redux";
 
-import ProjectPageLink from "./project-page-link";
+import ProjectPageLink from "./ProjectPageLink";
 import { fetchDestroyedAssignments } from "../../actions/assignments";
 
 interface HistoryCanvasProps {

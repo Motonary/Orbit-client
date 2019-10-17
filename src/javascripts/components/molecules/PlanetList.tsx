@@ -1,11 +1,12 @@
+import styled from "@emotion/styled";
 import * as React from "react";
 import { connect } from "react-redux";
 
-import Planet from "./planet";
+import Planet from "./Planet";
 
 import { setSelectedStar, resetSelectedStar } from "../../actions/common";
 
-interface PlanetListProps {
+interface Props {
   planetType: string;
 
   selectedStar: any;
@@ -14,7 +15,7 @@ interface PlanetListProps {
   resetSelectedStar: any;
 }
 
-class PlanetList extends React.Component<PlanetListProps, {}> {
+class PlanetList extends React.Component<Props, {}> {
   componentDidMount() {
     this.setDragnDrop();
   }
@@ -31,24 +32,39 @@ class PlanetList extends React.Component<PlanetListProps, {}> {
       },
       false
     );
-
-    // During dragging
-    // target.addEventListener('drag', () => {}, false)
-
-    // End of dragging
-    // target.addEventListener('dragend', () => {}, false)
   }
 
   render() {
     const { planetType } = this.props;
 
     return (
-      <li id={planetType} className="planet" draggable={true}>
-        <Planet className="planet-img" planetType={planetType} />
-      </li>
+      <Root id={planetType} className="planet" draggable={true}>
+        <_Planet planetType={planetType} />
+      </Root>
     );
   }
 }
+
+const Root = styled.li`
+  list-style: none;
+  color: #fff;
+  width: $available-planet-size;
+  height: $available-planet-size;
+  margin-right: 10px;
+  border-radius: 50%;
+`;
+
+const _Planet = styled(Planet)`
+  width: $available-planet-size;
+  height: $available-planet-size;
+  border-radius: 50%;
+  cursor: pointer;
+
+  img {
+    width: $available-planet-size;
+    height: $available-planet-size;
+  }
+`;
 
 export default connect(
   ({ selectedStar }: any) => ({ selectedStar }),

@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 import _ from "lodash";
 
 import PopupBox from "../atoms/popup-box";
-import Planet from "../molecules/planet";
+import Planet from "./Planet";
 
 import {
   setCurrentProject,

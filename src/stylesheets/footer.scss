@@ -36,34 +36,8 @@ $holder-height: 100px;
     }
 
     ul#planet-list {
-      display: flex;
-      align-items: center;
-      overflow: scroll;
-      margin: 0;
-      padding: 0;
-      width: 0;
-      transition: 1000ms linear;
+      
 
-      li.planet {
-        list-style: none;
-        color: #fff;
-        width: $available-planet-size;
-        height: $available-planet-size;
-        margin-right: 10px;
-        border-radius: 50%;
-
-        .planet-img {
-          width: $available-planet-size;
-          height: $available-planet-size;
-          border-radius: 50%;
-          cursor: pointer;
-          
-          img {
-            width: $available-planet-size;
-            height: $available-planet-size;
-          }
-        }
-      }
       .current-clicked {
         box-shadow: 0 0 10px #fff;
       }

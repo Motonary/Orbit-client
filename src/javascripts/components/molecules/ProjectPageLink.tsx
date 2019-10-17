@@ -1,8 +1,9 @@
+import styled from "@emotion/styled";
 import * as React from "react";
 import { connect } from "react-redux";
-import _ from "lodash";
 
-import PlanetImg from "../atoms/planet-img";
+import Img from "../atoms/Image";
+import { shiver } from "../common/keyframes";
 
 import {
   setCurrentProject,
@@ -11,7 +12,7 @@ import {
 
 import { PlanetImgs } from "../../constants/images";
 
-interface ProjectPageLinkProps {
+interface Props {
   history: any;
   match: any;
 
@@ -21,7 +22,7 @@ interface ProjectPageLinkProps {
   fetchRevolvingProjects: any;
 }
 
-class ProjectPageLink extends React.Component<ProjectPageLinkProps, {}> {
+class ProjectPageLink extends React.Component<Props, {}> {
   componentDidMount() {
     if (!this.props.revolvingProjects) {
       this.props.fetchRevolvingProjects();
@@ -39,22 +40,42 @@ class ProjectPageLink extends React.Component<ProjectPageLinkProps, {}> {
 
   render() {
     return (
-      <div className="project-list">
-        {_.map(this.props.revolvingProjects, (project: any) => {
+      <Root>
+        {this.props.revolvingProjects.map((project: any) => {
           return (
-            <div
+            <Planet
               key={project.id}
-              className="shiver-planet"
               onClick={() => this.onClickProjectPlanet(project.id)}
             >
-              <PlanetImg src={PlanetImgs[project.fixed_star_type]} />
-            </div>
+              <Img
+                src={PlanetImgs[project.fixed_star_type]}
+                alt={project.fixed_star_type}
+                width="80px"
+                height="80px"
+              />
+            </Planet>
           );
         })}
-      </div>
+      </Root>
     );
   }
 }
+
+const Root = styled.div`
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 100%;
+`;
+
+const Planet = styled.div`
+  width: 80px;
+  height: 80px;
+  margin: 10px;
+  border-radius: 50%;
+  animation: ${shiver} 1s infinite;
+  cursor: pointer;
+`;
 
 export default connect(
   ({ revolvingProjects }: any) => ({ revolvingProjects }),
