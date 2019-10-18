@@ -4,7 +4,7 @@ import Alert from "react-s-alert";
 
 import FixedStar from "../molecules/FixedStar";
 import CircleOrbit from "../molecules/CircleOrbit";
-import ProjectBar from "../molecules/project-bar";
+import ProjectBar from "../molecules/ProjectBar";
 
 interface Props {
   currentProject: any;

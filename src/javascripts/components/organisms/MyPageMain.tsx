@@ -3,8 +3,8 @@ import * as React from "react";
 import { Redirect } from "react-router-dom";
 import Alert from "react-s-alert";
 
-import MypageUserInfo from "../molecules/mypage-user-info";
-import MypageOrbit from "../molecules/mypage-orbit";
+import MypageUserInfo from "../molecules/UserInfo";
+import MypageOrbit from "../molecules/MypageOrbit";
 
 import "../../../stylesheets/mypage.scss";
 

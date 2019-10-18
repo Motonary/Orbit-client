@@ -2,7 +2,7 @@ import styled from "@emotion/styled";
 import * as React from "react";
 import Alert from "react-s-alert";
 
-import UserImgUpdater from "../molecules/user-img-updater";
+import UserImgUpdateForm from "../molecules/UserImageUpdateForm";
 import ProfileUpdateForm from "../molecules/forms/profile-update-form";
 import SignOutBtn from "../atoms/buttons/sign-out-btn";
 
@@ -15,7 +15,7 @@ const SettingPageMain: React.SFC<SettingPageMainProps> = ({
   history
 }) => (
   <Root>
-    <UserImgUpdater currentUser={currentUser} />
+    <UserImgUpdateForm currentUser={currentUser} />
     <ProfileUpdateForm history={history} />
     <SignOutBtn history={history} />
     <Alert />

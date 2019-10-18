@@ -48,48 +48,33 @@
   }
 
   #stored-planet-list {
-    display: flex;
-    align-content: flex-start;
-    flex-wrap: wrap;
-    flex-direction: row;
-    color: #fff;
+    // display: flex;
+    // align-content: flex-start;
+    // flex-wrap: wrap;
+    // flex-direction: row;
+    // color: #fff;
 
-    position: absolute;
-    top: 30px;
-    left: 80px;
+    // position: absolute;
+    // top: 30px;
+    // left: 80px;
 
-    max-width: 1000px;
-    width: 900px;
-    height: 600px;
-    margin: 20px auto;
-    padding: 100px;
-    z-index: 200;
-    overflow-y: scroll;
+    // max-width: 1000px;
+    // width: 900px;
+    // height: 600px;
+    // margin: 20px auto;
+    // padding: 100px;
+    // z-index: 200;
+    // overflow-y: scroll;
 
     .date {
       @include size(80px);
 
       .year {
-        width: 70px;
-        height: 70px;
-        margin: 5px;
-        padding: 0;
-        line-height: 70px;
-        font-size: 16px;
-        border: solid 1px #fff;
-        border-radius: 50%;
-        background-color: $bg-common-color;
+        
       }
 
       .day {
-        width: 60px;
-        height: 60px;
-        margin: 10px;
-        padding: 0;
-        line-height: 60px;
-        border: solid 1px #fff;
-        border-radius: 50%;
-        background-color: $bg-common-color;
+        
       }
     }
 
@@ -129,11 +114,11 @@
       }
     }
 
-    .planet-list-row:nth-child(2n+1) {
-      align-content: flex-start;
-    }
-    .planet-list-row:nth-child(2n) {
-      align-content: flex-end;
-    }
+    // .planet-list-row:nth-child(2n+1) {
+    //   align-content: flex-start;
+    // }
+    // .planet-list-row:nth-child(2n) {
+    //   align-content: flex-end;
+    // }
   }
 }

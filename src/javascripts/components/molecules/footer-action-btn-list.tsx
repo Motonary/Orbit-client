@@ -2,7 +2,7 @@ import * as React from "react";
 import { connect } from "react-redux";
 import classNames from "classnames";
 
-import Revival from "./revival";
+import Revival from "./Revival";
 import Meteorite from "./meteorite";
 import Missle from "./missile";
 import BlackHole from "./blackhole";

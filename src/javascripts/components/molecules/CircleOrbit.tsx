@@ -4,6 +4,7 @@ import { connect } from "react-redux";
 
 import PopupBox from "../atoms/popup-box";
 import Planet from "./Planet";
+import { top, right, left, bottom } from "../common/position";
 import { rotate, shiver } from "../common/keyframes";
 
 import {
@@ -341,34 +342,6 @@ const PlanetContainer = styled.div<{ pos: string; orbit: string }>`
         return `animation: ${rotate} $satelite-orbit-speed linear infinite;`;
     }
   }}
-`;
-
-const top = `
-  position: absolute;
-  left: 25%;
-  top: -25%;
-  transform-origin: center 150%;
-`;
-
-const right = `
-  position: absolute;
-  left: 75%;
-  top: 25%;
-  transform-origin: -50% center;
-`;
-
-const left = `
-  position: absolute;
-  left: -25%;
-  top: 25%;
-  transform-origin: 150% center;
-`;
-
-const bottom = `
-  position: absolute;
-  left: 25%;
-  top: 75%;
-  transform-origin: center -50%;
 `;
 
 const PlanetWrapper = styled.div<{

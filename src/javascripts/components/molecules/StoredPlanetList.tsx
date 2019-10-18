@@ -1,6 +1,6 @@
+import styled from "@emotion/styled";
 import * as React from "react";
 import { connect } from "react-redux";
-import _ from "lodash";
 
 import Planet from "./Planet";
 import PopupBox from "../atoms/popup-box";
@@ -17,19 +17,15 @@ class StoredPlanetList extends React.Component<StoredPlanetListProps, {}> {
     const { destroyedAssignments } = this.props;
 
     function renderPlanetDays(dayDestroyedAssignments: any) {
-      _.forEach(dayDestroyedAssignments, (assignment: any) => {
+      dayDestroyedAssignments.forEach((assignment: any) => {
         contentList.push(
-          <div
+          <StoredPlanetContainer
             key={assignment.id}
             id={`planet-${assignment.id}-${assignment.planet_type}`}
-            className="stored-planet-container"
           >
             <PopupBox data={assignment} isProject={false} />
-            <Planet
-              className="stored-planet"
-              planetType={assignment.planet_type}
-            />
-          </div>
+            <StoredPlanet planetType={assignment.planet_type} />
+          </StoredPlanetContainer>
         );
       });
     }
@@ -38,9 +34,9 @@ class StoredPlanetList extends React.Component<StoredPlanetListProps, {}> {
       const days: any = Object.keys(yearDestroyedAssignments); //
       days.forEach((day: any) => {
         contentList.push(
-          <div className="date">
-            <div className="day">{day}</div>
-          </div>
+          <Date>
+            <Day>{day}</Day>
+          </Date>
         );
         renderPlanetDays(yearDestroyedAssignments[day]);
       });
@@ -51,9 +47,9 @@ class StoredPlanetList extends React.Component<StoredPlanetListProps, {}> {
       const years: any = Object.keys(destroyedAssignments); //
       years.forEach((year: any) => {
         contentList.push(
-          <div className="date">
-            <div className="year planet-list-row">{year}</div>
-          </div>
+          <Date>
+            <Year>{year}</Year>
+          </Date>
         );
         renderPlanetYears(destroyedAssignments[year]);
       });
@@ -101,17 +97,100 @@ class StoredPlanetList extends React.Component<StoredPlanetListProps, {}> {
     const { destroyedAssignments } = this.props;
     if (!destroyedAssignments) return <div>Loading....</div>;
     if (Object.keys(destroyedAssignments).length === 0) return <div />;
+
     const contentList = this.renderList();
 
     return (
-      <div id="stored-planet-list">
-        {_.forEach(contentList, (content: any) => {
+      <Root>
+        {contentList.forEach((content: any) => {
           return content;
         })}
-      </div>
+      </Root>
     );
   }
 }
+
+const Root = styled.div`
+  display: flex;
+  align-content: flex-start;
+  flex-wrap: wrap;
+  flex-direction: row;
+  color: #fff;
+
+  position: absolute;
+  top: 30px;
+  left: 80px;
+
+  max-width: 1000px;
+  width: 900px;
+  height: 600px;
+  margin: 20px auto;
+  padding: 100px;
+  z-index: 200;
+  overflow-y: scroll;
+`;
+
+const StoredPlanetContainer = styled.div`
+  position: relative;
+  display: block;
+  width: 80px;
+  height: 80px;
+  margin: 10px 30px;
+  border-radius: 50%;
+  text-align: center;
+`;
+
+const StoredPlanet = styled(Planet)`
+  position: relative;
+  width: 80px;
+  height: 80px;
+  cursor: pointer;
+
+  img {
+    width: 80px;
+    height: 80px;
+  }
+`;
+
+const Date = styled.div`
+  display: block;
+  width: 80px;
+  height: 80px;
+  margin: 10px 30px;
+  border-radius: 50%;
+  text-align: center;
+`;
+
+const Year = styled.div`
+  width: 70px;
+  height: 70px;
+  margin: 5px;
+  padding: 0;
+  line-height: 70px;
+  font-size: 16px;
+  border: solid 1px #fff;
+  border-radius: 50%;
+  background-color: $bg-common-color;
+
+  &:nth-child(2n + 1) {
+    align-content: flex-start;
+  }
+
+  &:nth-child(2n) {
+    align-content: flex-end;
+  }
+`;
+
+const Day = styled.div`
+  width: 60px;
+  height: 60px;
+  margin: 10px;
+  padding: 0;
+  line-height: 60px;
+  border: solid 1px #fff;
+  border-radius: 50%;
+  background-color: $bg-common-color;
+`;
 
 export default connect(
   ({ selectedAssignments, destroyedAssignments }: any) => ({
