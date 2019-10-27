@@ -64,6 +64,6 @@
     "dist",
     "coverage",
     "webpack.config.js", // これしないとエラー起きるけどそこ直せるなら削除した方がいいかも
-    "src/javascripts/components/__stories__"
+    "src/components/__stories__"
   ]
 }
