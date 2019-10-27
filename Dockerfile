@@ -12,5 +12,6 @@ COPY . /usr/src/app
 
 # expose port of container to host machine
 EXPOSE 4000
+EXPOSE 6006
 
 CMD ["bash"]
