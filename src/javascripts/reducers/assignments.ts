@@ -1,5 +1,4 @@
 import { actionTypes } from "../constants/ActionTypes";
-import _ from "lodash";
 import moment from "moment";
 import {
   RevolvingAssignmentsAction,

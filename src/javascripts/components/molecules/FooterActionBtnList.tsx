@@ -4,7 +4,7 @@ import { connect } from "react-redux";
 
 import Revival from "./Revival";
 import Meteorite from "./Meteorite";
-import Missle from "./Missile";
+import Missle from "./Missle";
 import BlackHole from "./BlackHole";
 
 import { setModalStatus, setDestroyAction } from "../../actions/common";
