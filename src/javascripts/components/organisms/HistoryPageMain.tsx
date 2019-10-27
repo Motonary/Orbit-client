@@ -2,7 +2,7 @@ import styled from "@emotion/styled";
 import * as React from "react";
 import Alert from "react-s-alert";
 
-import HistoryCanvas from "../molecules/history-canvas";
+import HistoryCanvas from "../molecules/HistoryCanvas";
 import StoredPlanetList from "../molecules/StoredPlanetList";
 
 interface Props {

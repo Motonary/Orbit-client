@@ -2,7 +2,7 @@ import styled from "@emotion/styled";
 import * as React from "react";
 import { connect } from "react-redux";
 
-import PopupBox from "../atoms/popup-box";
+import PopupBox from "../atoms/PopupBox";
 import Planet from "./Planet";
 import { top, right, left, bottom } from "../common/position";
 import { rotate, shiver } from "../common/keyframes";

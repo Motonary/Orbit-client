@@ -3,8 +3,8 @@ import { bindActionCreators } from "redux";
 import { connect } from "react-redux";
 import { Formik } from "formik";
 
-import InputField from "../../atoms/input-field";
-import SelectField from "../../atoms/select-field";
+import InputField from "../../atoms/InputField";
+import SelectField from "../../atoms/SelectField";
 
 import {
   setSelectedStar,

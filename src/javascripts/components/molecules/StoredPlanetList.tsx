@@ -3,7 +3,7 @@ import * as React from "react";
 import { connect } from "react-redux";
 
 import Planet from "./Planet";
-import PopupBox from "../atoms/popup-box";
+import PopupBox from "../atoms/PopupBox";
 
 interface StoredPlanetListProps {
   selectedAssignments: any;

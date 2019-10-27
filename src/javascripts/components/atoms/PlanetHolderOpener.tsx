@@ -1,8 +1,11 @@
+import styled from "@emotion/styled";
 import * as React from "react";
-import classNames from "classnames";
+
+import Img from "../atoms/Image";
 import { ImgHolderOpen } from "../../constants/images";
 
 interface Props {
+  className?: string;
   currentUser: any;
   pathname: any;
 }
@@ -31,26 +34,36 @@ class PlanetHolderOpener extends React.Component<Props, {}> {
   }
 
   render() {
-    const { currentUser, pathname } = this.props;
+    const { className, currentUser, pathname } = this.props;
     // 一箇所でしか使ってないけど他のコンポーネントと記法統一して見やすく
     const rootPath = `/users/${currentUser.id}`;
 
-    const planetHolderClasses = classNames({
-      "open-planet-holder": true,
-      "holder-show":
-        pathname === `${rootPath}` ||
-        /^\/users\/[1-9]\d*\/projects$/.test(pathname)
-    });
-
     return (
-      <div
-        className={planetHolderClasses}
+      <Root
+        className={className}
         onClick={this.onClickOpenPlanetHolder.bind(this)}
+        isShow={
+          pathname === `${rootPath}` ||
+          /^\/users\/[1-9]\d*\/projects$/.test(pathname)
+        }
       >
-        <img src={ImgHolderOpen} className="planet-holder-img" />
-      </div>
+        <_Img
+          src={ImgHolderOpen}
+          alt={ImgHolderOpen}
+          height="100px"
+          width="100px"
+        />
+      </Root>
     );
   }
 }
+
+const Root = styled.div<{ isShow: boolean }>`
+  display: ${({ isShow }) => (isShow ? "block" : "none")};
+`;
+
+const _Img = styled(Img)`
+  cursor: pointer;
+`;
 
 export default PlanetHolderOpener;

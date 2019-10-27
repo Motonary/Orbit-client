@@ -2,7 +2,7 @@ import styled from "@emotion/styled";
 import * as React from "react";
 import { connect } from "react-redux";
 
-import PopupProjectCard from "../atoms/popup-project-card";
+import PopupProjectCard from "../atoms/PopupProjectCard";
 import Planet from "./Planet";
 import { top, right, left, bottom } from "../common/position";
 import { rotate } from "../common/keyframes";

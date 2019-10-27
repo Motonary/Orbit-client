@@ -1,11 +1,10 @@
+import styled from "@emotion/styled";
 import * as React from "react";
 import { connect } from "react-redux";
-import _ from "lodash";
 import anime from "animejs";
 import Alert from "react-s-alert";
 
-import ActionBtn from "../atoms/buttons/action-btn";
-
+import Img from "../atoms/Image";
 import { resetDestroyAction, resetModalStatus } from "../../actions/common";
 import {
   destroyAssignment,
@@ -15,9 +14,9 @@ import { destroyProject, resetSelectedProject } from "../../actions/projects";
 
 import { DeleteActions } from "../../constants/images";
 
-interface MissleProps {
+interface Props {
+  className?: string;
   icon: string;
-  actionBtnClass: string;
   history: any;
   currentUser: any;
   motionControll: () => void;
@@ -37,7 +36,7 @@ interface MissleProps {
   resetSelectedProject: any;
 }
 
-class Missle extends React.Component<MissleProps, {}> {
+class Missle extends React.Component<Props, {}> {
   componentDidUpdate(/*prevProps, prevState*/) {
     const {
       selectedAssignments,
@@ -156,7 +155,7 @@ class Missle extends React.Component<MissleProps, {}> {
 
   // 削除されたAssignmentIdをcanvasのidから特定し、destroyedAssignmentsに格納
   removeAssignmentData(parent: any) {
-    _.forEach(parent, (destroyDom: any) => {
+    parent.forEach((destroyDom: any) => {
       const destroyedCvs: any = destroyDom.children[1];
       const destroyedAssignmentId: string = destroyedCvs.id.split("-")[0];
       this.props.destroyAssignment(destroyedAssignmentId);
@@ -238,7 +237,7 @@ class Missle extends React.Component<MissleProps, {}> {
     }
 
     function removeImg() {
-      _.forEach(parent, (doc: any) => {
+      parent.forEach((doc: any) => {
         const child: any = isProject ? doc.children[0] : doc.children[1];
         if (!isProject) {
           if (child.classList.contains("warning-animation")) {
@@ -341,16 +340,18 @@ class Missle extends React.Component<MissleProps, {}> {
   }
 
   render() {
-    const { icon, actionBtnClass, onClick } = this.props;
+    const { className, icon, onClick } = this.props;
+    const holderHeight = "100px";
+
     return (
-      <ActionBtn
-        icon={icon}
-        actionBtnClass={actionBtnClass}
-        onClick={onClick}
-      />
+      <Root className={className} onClick={onClick}>
+        <Img src={icon} alt={icon} height={holderHeight} width={holderHeight} />
+      </Root>
     );
   }
 }
+
+const Root = styled.li``;
 
 export default connect(
   ({

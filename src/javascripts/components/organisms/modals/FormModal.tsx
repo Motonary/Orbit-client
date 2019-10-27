@@ -3,7 +3,7 @@ import * as React from "react";
 import { connect } from "react-redux";
 import Modal from "react-modal";
 
-import AssignmentForm from "../../molecules/forms/assignment-form";
+import AssignmentForm from "../../molecules/forms/AssignmentForm";
 import SubAssignmentForm from "../../molecules/forms/subassignmnet-form";
 import ProjectForm from "../../molecules/forms/project-form";
 

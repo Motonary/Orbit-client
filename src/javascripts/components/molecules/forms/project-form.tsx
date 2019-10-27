@@ -2,7 +2,7 @@ import * as React from "react";
 import { connect } from "react-redux";
 import { Formik } from "formik";
 
-import InputField from "../../atoms/input-field";
+import InputField from "../../atoms/InputField";
 
 import {
   setSelectedStar,

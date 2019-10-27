@@ -2,7 +2,7 @@ import styled from "@emotion/styled";
 import * as React from "react";
 
 import PlanetHolder from "../molecules/PlanetHolder";
-import FooterActionBtnList from "../molecules/footer-action-btn-list";
+import FooterActionBtnList from "../molecules/FooterActionBtnList";
 import ConfirmModal from "./modals/ConfirmModal";
 import FormModal from "./modals/FormModal";
 import TutorialModal from "./modals/TutorialModal";
