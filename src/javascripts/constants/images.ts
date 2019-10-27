@@ -3,68 +3,68 @@
 // -----------------------------------------------------------------------------
 
 // HeaderIcons
-import ImgHistoryIcon from "../../images/header/history_icon.png";
-import ImgSettingIcon from "../../images/header/setting_icon.png";
-import ImgBackIcon from "../../images/header/back_icon.png";
-import SignInButton from "../../images/header/sign_in_button.png";
-import SignUpButton from "../../images/header/sign_up_button.png";
+const ImgHistoryIcon = `${process.env.PUBLIC_URL}/images/header/history_icon.png`;
+const ImgSettingIcon = `${process.env.PUBLIC_URL}/images/header/setting_icon.png`;
+const ImgBackIcon = `${process.env.PUBLIC_URL}/images/header/back_icon.png`;
+const SignInButton = `${process.env.PUBLIC_URL}/images/header/sign_in_button.png`;
+const SignUpButton = `${process.env.PUBLIC_URL}/images/header/sign_up_button.png`;
 
 // planet images
-import ImgStar1 from "../../images/planets/star_1.png";
-import ImgStar2 from "../../images/planets/star_2.png";
-import ImgStar3 from "../../images/planets/star_3.png";
-import ImgStar4 from "../../images/planets/star_4.png";
-import ImgStar5 from "../../images/planets/star_5.png";
-import ImgStar6 from "../../images/planets/star_6.png";
-import ImgStar7 from "../../images/planets/star_7.png";
-import ImgStar8 from "../../images/planets/star_8.png";
-import ImgStar9 from "../../images/planets/star_9.png";
-import ImgStar10 from "../../images/planets/star_10.png";
-import ImgStar11 from "../../images/planets/star_11.png";
-import ImgStar12 from "../../images/planets/star_12.png";
-import ImgStar13 from "../../images/planets/star_13.png";
-import ImgStar14 from "../../images/planets/star_14.png";
-import ImgStar15 from "../../images/planets/star_15.png";
+const ImgStar1 = `${process.env.PUBLIC_URL}/images/planets/star_1.png`;
+const ImgStar2 = `${process.env.PUBLIC_URL}/images/planets/star_2.png`;
+const ImgStar3 = `${process.env.PUBLIC_URL}/images/planets/star_3.png`;
+const ImgStar4 = `${process.env.PUBLIC_URL}/images/planets/star_4.png`;
+const ImgStar5 = `${process.env.PUBLIC_URL}/images/planets/star_5.png`;
+const ImgStar6 = `${process.env.PUBLIC_URL}/images/planets/star_6.png`;
+const ImgStar7 = `${process.env.PUBLIC_URL}/images/planets/star_7.png`;
+const ImgStar8 = `${process.env.PUBLIC_URL}/images/planets/star_8.png`;
+const ImgStar9 = `${process.env.PUBLIC_URL}/images/planets/star_9.png`;
+const ImgStar10 = `${process.env.PUBLIC_URL}/images/planets/star_10.png`;
+const ImgStar11 = `${process.env.PUBLIC_URL}/images/planets/star_11.png`;
+const ImgStar12 = `${process.env.PUBLIC_URL}/images/planets/star_12.png`;
+const ImgStar13 = `${process.env.PUBLIC_URL}/images/planets/star_13.png`;
+const ImgStar14 = `${process.env.PUBLIC_URL}/images/planets/star_14.png`;
+const ImgStar15 = `${process.env.PUBLIC_URL}/images/planets/star_15.png`;
 
 // delete icons
-import DeleteIcon1 from "../../images/footer/delete_btn_1.png";
-import DeleteIcon2 from "../../images/footer/delete_btn_2.png";
-import DeleteIcon3 from "../../images/footer/delete_btn_3.png";
+const DeleteIcon1 = `${process.env.PUBLIC_URL}/images/footer/delete_btn_1.png`;
+const DeleteIcon2 = `${process.env.PUBLIC_URL}/images/footer/delete_btn_2.png`;
+const DeleteIcon3 = `${process.env.PUBLIC_URL}/images/footer/delete_btn_3.png`;
 
 // revival icons
-import RevivalIcon from "../../images/footer/revival_btn.png";
+const RevivalIcon = `${process.env.PUBLIC_URL}/images/footer/revival_btn.png`;
 
 // delete action
-import MeteoriteImg from "../../images/main/metor.png";
-import MissileImg from "../../images/main/missile.png";
-import BlackHoleImg from "../../images/main/blackhole.png";
+const MeteoriteImg = `${process.env.PUBLIC_URL}/images/main/metor.png`;
+const MissileImg = `${process.env.PUBLIC_URL}/images/main/missile.png`;
+const BlackHoleImg = `${process.env.PUBLIC_URL}/images/main/blackhole.png`;
 
 // Starholder
-import ImgHolderOpenImg from "../../images/footer/planet_holder_btn.png";
+const ImgHolderOpenImg = `${process.env.PUBLIC_URL}/images/footer/planet_holder_btn.png`;
 
 // -----------------------------------------------------------------------------
 // export
 // -----------------------------------------------------------------------------
 
-export const HeaderIcons: any = {
+export const HeaderIcons = {
   HISTORY: ImgHistoryIcon,
   SETTING: ImgSettingIcon,
   BACK: ImgBackIcon
 };
 
-export const TopPageImgs: any = {
+export const TopPageImgs = {
   signIn: SignInButton,
   signUp: SignUpButton
 };
 
-export const FixedStarImgs: any = {
+export const FixedStarImgs = {
   Sun: ImgStar11,
   Venus: ImgStar12,
   Takoyaki: ImgStar13,
   Ball: ImgStar14
 };
 
-export const NormalPlanetImgs: any = {
+export const NormalPlanetImgs = {
   Uranus: ImgStar1,
   Mercury: ImgStar2,
   Pluto: ImgStar3,
@@ -78,7 +78,7 @@ export const NormalPlanetImgs: any = {
   Egg: ImgStar15
 };
 
-export const PlanetImgs: any = {
+export const PlanetImgs = {
   Uranus: ImgStar1,
   Mercury: ImgStar2,
   Pluto: ImgStar3,
@@ -96,17 +96,17 @@ export const PlanetImgs: any = {
   Egg: ImgStar15
 };
 
-export const ActionIcons: any = {
+export const ActionIcons = {
   Revival: RevivalIcon,
   Meteorite: DeleteIcon1,
   Missile: DeleteIcon2,
   BlackHole: DeleteIcon3
 };
 
-export const DeleteActions: any = {
+export const DeleteActions = {
   Meteorite: MeteoriteImg,
   Missile: MissileImg,
   BlackHole: BlackHoleImg
 };
 
-export const ImgHolderOpen: any = ImgHolderOpenImg;
+export const ImgHolderOpen = ImgHolderOpenImg;
