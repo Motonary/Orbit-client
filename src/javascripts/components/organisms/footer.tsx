@@ -7,8 +7,6 @@ import ConfirmModal from "./modals/ConfirmModal";
 import FormModal from "./modals/FormModal";
 import TutorialModal from "./modals/TutorialModal";
 
-import "../../../stylesheets/destroy_animate.scss";
-
 interface Props {
   currentUser: any;
   pathname: any;

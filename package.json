@@ -60,7 +60,6 @@
     "@storybook/react": "^5.2.4",
     "@types/animejs": "^2.0.1",
     "@types/keymirror": "^0.1.1",
-    "@types/moment": "^2.13.0",
     "@types/node": "^10.12.12",
     "@types/react": "^16.7.13",
     "@types/react-dom": "^16.0.11",

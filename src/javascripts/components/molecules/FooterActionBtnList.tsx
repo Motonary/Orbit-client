@@ -11,8 +11,6 @@ import { setModalStatus, setDestroyAction } from "../../actions/common";
 
 import { ActionIcons } from "../../constants/ImagesUrl";
 
-import "../../../stylesheets/destroy_animate.scss";
-
 interface Props {
   pathname: any;
   rootPath: any;

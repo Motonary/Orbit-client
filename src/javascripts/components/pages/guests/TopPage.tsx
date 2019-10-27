@@ -6,8 +6,6 @@ import Button from "../../atoms/Button";
 import Img from "../../atoms/Image";
 
 import { TopPageImgs } from "../../../constants/ImagesUrl";
-import TopLogo from "../../../images/index/logo.png";
-import Planet from "../../../images/index/top_earth.png";
 
 import SignInForm from "../../molecules/Forms/SignInForm";
 import SignUpForm from "../../molecules/Forms/SignUpForm";
@@ -29,14 +27,14 @@ const TopPage: React.FC<Props> = ({ currentUser, pathname, history }) => {
     <Root>
       <_Button onClick={onTopPageButtonClick}>
         {isSignIn ? (
-          <Img alt="sign-up" width="170px" src={TopPageImgs["signUp"]} />
+          <Img alt="sign-up" width="170px" src={TopPageImgs.signUp} />
         ) : (
-          <Img alt="sign-in" width="170px" src={TopPageImgs["signIn"]} />
+          <Img alt="sign-in" width="170px" src={TopPageImgs.signIn} />
         )}
       </_Button>
       <Alert />
       <Logo>
-        <Img src={TopLogo} alt="logo" />
+        <Img src={TopPageImgs.logo} alt="logo" />
       </Logo>
       <SignForm>
         {isSignIn ? (
@@ -46,7 +44,7 @@ const TopPage: React.FC<Props> = ({ currentUser, pathname, history }) => {
         )}
       </SignForm>
       <TopPlanet>
-        <Img src={Planet} alt="top page planet" />
+        <Img src={TopPageImgs.planet} alt="top page planet" />
       </TopPlanet>
     </Root>
   );

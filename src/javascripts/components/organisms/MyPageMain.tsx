@@ -6,8 +6,6 @@ import Alert from "react-s-alert";
 import MypageUserInfo from "../molecules/UserInfo";
 import MypageOrbit from "../molecules/MypageOrbit";
 
-import "../../../stylesheets/mypage.scss";
-
 interface MyPageMainProps {
   currentUser: any;
   match: any;

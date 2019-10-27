@@ -14,16 +14,6 @@ import Main from "./components/index/Main";
 import UserOnly from "./components/index/UserOnly";
 import GuestOnly from "./components/index/GuestOnly";
 
-import "../stylesheets/common.scss";
-import "../stylesheets/form_field.scss";
-import "../stylesheets/top_page.scss";
-import "../stylesheets/page_container.scss";
-import "../stylesheets/header.scss";
-import "../stylesheets/footer.scss";
-import "../stylesheets/history_page.scss";
-import "../stylesheets/setting_page.scss";
-import "../stylesheets/flash.scss";
-
 const createStoreWithMiddleware: any = applyMiddleware(promise)(createStore);
 
 ReactDOM.render(

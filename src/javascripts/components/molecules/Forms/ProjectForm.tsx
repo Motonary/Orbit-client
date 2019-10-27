@@ -1,7 +1,7 @@
-import styled from "./@emotion/styled";
-import * as React from "./react";
-import { connect } from "./react-redux";
-import { Formik } from "./formik";
+import styled from "@emotion/styled";
+import * as React from "react";
+import { connect } from "react-redux";
+import { Formik } from "formik";
 
 import InputField from "../../atoms/InputField";
 import RawButton from "../../atoms/RawButton";

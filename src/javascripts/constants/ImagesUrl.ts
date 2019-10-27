@@ -52,6 +52,10 @@ const ImgHolderOpenImg = `${
   process.env.PUBLIC_URL
 }/images/footer/planet_holder_btn.png`;
 
+// TopPage
+const Logo = `${process.env.PUBLIC_URL}/images/index/logo.png`;
+const TopPlanet = `${process.env.PUBLIC_URL}/images/index/top_earth.png`;
+
 // -----------------------------------------------------------------------------
 // export
 // -----------------------------------------------------------------------------
@@ -64,7 +68,9 @@ export const HeaderIcons = {
 
 export const TopPageImgs = {
   signIn: SignInButton,
-  signUp: SignUpButton
+  signUp: SignUpButton,
+  logo: Logo,
+  planet: TopPlanet
 };
 
 export const FixedStarImgs = {
