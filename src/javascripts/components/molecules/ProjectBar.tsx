@@ -2,7 +2,7 @@ import styled from "@emotion/styled";
 import * as React from "react";
 import { connect } from "react-redux";
 
-import FixedStarInList from "../atoms/fixed-star-in-list";
+import FixedStarInList from "../atoms/FixedStarInList";
 import { fetchRevolvingAssignments } from "../../actions/assignments";
 import { changeCurrentProject } from "../../actions/projects";
 

@@ -4,8 +4,8 @@ import { connect } from "react-redux";
 import Modal from "react-modal";
 
 import AssignmentForm from "../../molecules/forms/AssignmentForm";
-import SubAssignmentForm from "../../molecules/forms/subassignmnet-form";
-import ProjectForm from "../../molecules/forms/project-form";
+import SubAssignmentForm from "../../molecules/forms/SubAssignmentForm";
+import ProjectForm from "../../molecules/forms/ProjectForm";
 
 import { resetModalStatus, resetSelectedStar } from "../../../actions/common";
 
