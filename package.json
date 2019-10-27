@@ -1,16 +1,16 @@
 {
-  "name": "orbit-backend",
+  "name": "orbit-client",
   "version": "1.0.0",
   "main": "index.js",
   "private": true,
-  "author": "UT mafia",
+  "author": "Motonary",
   "license": "ISC",
   "scripts": {
     "release": "webpack --mode production --config webpack.config.js",
     "watch": "webpack-dev-server --mode development --history-api-fallback",
-    "lint": "yarn tslint ./src/**/*.{ts,tsx}",
-    "fix": "tslint --fix",
-    "fix:all": "tslint --fix ./src/javascripts/**/*.{ts,tsx}",
+    "lint": "prettier --check './src/**/*.ts' './src/**/*.tsx'",
+    "fix": "prettier --write",
+    "fix:all": "prettier --write ./src/javascripts/**/*.{ts,tsx}",
     "storybook": "start-storybook -p 6006",
     "test": "jest"
   },
@@ -20,7 +20,7 @@
     }
   },
   "lint-staged": {
-    "*.{ts,tsx}": "tslint"
+    "*.{ts,tsx}": "prettier --check"
   },
   "jest": {
     "setupFiles": [
@@ -74,7 +74,6 @@
     "enzyme": "^3.8.0",
     "enzyme-adapter-react-16": "^1.7.1",
     "enzyme-to-json": "^3.3.5",
-    "extract-text-webpack-plugin": "^4.0.0-beta.0",
     "husky": "^1.2.1",
     "identity-obj-proxy": "^3.0.0",
     "jest": "^23.6.0",
@@ -83,10 +82,6 @@
     "react-hot-loader": "^4.3.8",
     "react-test-renderer": "^16.5.2",
     "ts-loader": "^5.3.1",
-    "tslint": "^5.11.0",
-    "tslint-config-prettier": "^1.17.0",
-    "tslint-config-standard": "^8.0.1",
-    "tslint-plugin-prettier": "^2.0.1",
     "typescript": "^3.2.1",
     "webpack": "^4.19.1",
     "webpack-cli": "^3.1.0",
