@@ -1,13 +1,14 @@
 import * as React from "react";
 import { connect } from "react-redux";
 
-import Header from "../../organisms/header";
-import MyPageMain from "../../organisms/mypage-main";
-import Footer from "../../organisms/footer";
+import { Root } from "./CommonStyleComponents";
+import Header from "../../organisms/Header";
+import MyPageMain from "../../organisms/MyPageMain";
+import Footer from "../../organisms/Footer";
 
 import { fetchRevolvingProjects } from "../../../actions/projects";
 
-interface MyPageProps {
+interface Props {
   currentUser: any;
   history: any;
   location: any;
@@ -16,7 +17,7 @@ interface MyPageProps {
   fetchRevolvingProjects: any;
 }
 
-class MyPage extends React.Component<MyPageProps, {}> {
+class MyPage extends React.Component<Props, {}> {
   componentDidMount() {
     if (sessionStorage.getItem("jwt")) this.props.fetchRevolvingProjects();
   }
@@ -30,7 +31,7 @@ class MyPage extends React.Component<MyPageProps, {}> {
     } = this.props;
 
     return (
-      <div className="page-container">
+      <Root>
         <Header
           currentUser={currentUser}
           history={history}
@@ -42,7 +43,7 @@ class MyPage extends React.Component<MyPageProps, {}> {
           pathname={pathname}
           history={history}
         />
-      </div>
+      </Root>
     );
   }
 }

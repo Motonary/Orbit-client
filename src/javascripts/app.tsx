@@ -10,19 +10,9 @@ import {
 } from "react-router-dom";
 import promise from "redux-promise";
 import reducers from "./reducers";
-import Main from "./components/index/main";
-import UserOnly from "./components/index/user-only";
-import GuestOnly from "./components/index/guest-only";
-
-import "../stylesheets/common.scss";
-import "../stylesheets/form_field.scss";
-import "../stylesheets/top_page.scss";
-import "../stylesheets/page_container.scss";
-import "../stylesheets/header.scss";
-import "../stylesheets/footer.scss";
-import "../stylesheets/history_page.scss";
-import "../stylesheets/setting_page.scss";
-import "../stylesheets/flash.scss";
+import Main from "./components/index/Main";
+import UserOnly from "./components/index/UserOnly";
+import GuestOnly from "./components/index/GuestOnly";
 
 const createStoreWithMiddleware: any = applyMiddleware(promise)(createStore);
 

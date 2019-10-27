@@ -1,11 +1,10 @@
+import styled from "@emotion/styled";
 import * as React from "react";
 import { connect } from "react-redux";
-import _ from "lodash";
 import anime from "animejs";
 import Alert from "react-s-alert";
 
-import ActionBtn from "../atoms/buttons/action-btn";
-
+import Img from "../atoms/Image";
 import { resetDestroyAction, resetModalStatus } from "../../actions/common";
 import {
   destroyAssignment,
@@ -13,10 +12,11 @@ import {
 } from "../../actions/assignments";
 import { destroyProject, resetSelectedProject } from "../../actions/projects";
 
-import { DeleteActions } from "../../constants/images";
+import { DeleteActions } from "../../constants/ImagesUrl";
 
-interface MeteoriteProps {
+interface Props {
   icon: string;
+  className?: string;
   actionBtnClass: string;
   history: any;
   currentUser: any;
@@ -37,7 +37,7 @@ interface MeteoriteProps {
   resetSelectedProject: any;
 }
 
-class Meteorite extends React.Component<MeteoriteProps, {}> {
+class Meteorite extends React.Component<Props, {}> {
   componentDidUpdate(/*prevProps, prevState*/) {
     const {
       selectedAssignments,
@@ -45,7 +45,9 @@ class Meteorite extends React.Component<MeteoriteProps, {}> {
       modalOpen,
       selectedDestroyAction
     } = this.props;
-    if (selectedAssignments.length === 0 && selectedProject.length === 0) return;
+    if (selectedAssignments.length === 0 && selectedProject.length === 0) {
+      return;
+    }
     if (modalOpen !== "") return;
     if (selectedDestroyAction !== "Meteorite") return;
     this.onIgniteDestroyAnimation();
@@ -154,7 +156,7 @@ class Meteorite extends React.Component<MeteoriteProps, {}> {
 
   // 削除されたAssignmentIdをcanvasのidから特定し、destroyedAssignmentsに格納
   removeAssignmentData(parent: any) {
-    _.forEach(parent, (destroyDom: any) => {
+    parent.forEach((destroyDom: any) => {
       let destroyedCvs: any = destroyDom.children[1];
       let destroyedAssignmentId: string = destroyedCvs.id.split("-")[0];
       this.props.destroyAssignment(destroyedAssignmentId);
@@ -237,7 +239,7 @@ class Meteorite extends React.Component<MeteoriteProps, {}> {
     }
 
     function removeImg() {
-      _.forEach(parent, (doc: any) => {
+      parent.forEach((doc: any) => {
         const child: any = isProject ? doc.children[0] : doc.children[1];
         doc.removeChild(child);
       });
@@ -334,16 +336,18 @@ class Meteorite extends React.Component<MeteoriteProps, {}> {
   }
 
   render() {
-    const { icon, actionBtnClass, onClick } = this.props;
+    const { className, icon, onClick } = this.props;
+    const holderHeight = "100px";
+
     return (
-      <ActionBtn
-        icon={icon}
-        actionBtnClass={actionBtnClass}
-        onClick={onClick}
-      />
+      <Root className={className} onClick={onClick}>
+        <Img src={icon} alt={icon} height={holderHeight} width={holderHeight} />
+      </Root>
     );
   }
 }
+
+const Root = styled.li``;
 
 export default connect(
   ({
