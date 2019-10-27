@@ -1,7 +1,7 @@
 import * as React from "react";
 import { Route, Switch, Redirect } from "react-router-dom";
 import { connect } from "react-redux";
-import TopPage from "../pages/guests/top-page";
+import TopPage from "../pages/guests/TopPage";
 
 interface Props {
   currentUser: any;

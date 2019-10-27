@@ -1,7 +1,7 @@
 import axios from "axios";
-import { actionTypes } from "../constants/action-types";
-import { BaseAction } from "../constants/static-types";
-import { ROOT_URL } from "../constants/url";
+import { actionTypes } from "../constants/ActionTypes";
+import { BaseAction } from "../constants/StaticTypes";
+import { ROOT_URL } from "../constants/RootUrl";
 
 interface CreateSubAssignmentAction extends BaseAction {
   type: string;

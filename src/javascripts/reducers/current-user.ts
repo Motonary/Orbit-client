@@ -1,4 +1,4 @@
-import { actionTypes } from "../constants/action-types";
+import { actionTypes } from "../constants/ActionTypes";
 import { CurrentUserAction } from "../actions/users";
 
 // TODO: ファイル名をuser.tsにしてcurrent-userはその一部にする

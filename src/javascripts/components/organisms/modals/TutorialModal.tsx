@@ -3,10 +3,7 @@ import * as React from "react";
 import { connect } from "react-redux";
 import Modal from "react-modal";
 
-import MyPageTutorial from "../../atoms/mypage-tutorial";
-import ProjectPageTutorial from "../../atoms/projectpage-tutorial";
-import ConfirmBtn from "../../atoms/buttons/confirm-btn";
-
+import RawButton from "../../atoms/RawButton";
 import { removeFirstVisitFlag } from "../../../actions/users";
 import { resetModalStatus, resetSelectedStar } from "../../../actions/common";
 
@@ -73,7 +70,7 @@ const TutorialModal: React.FC<Props> = ({ currentUser, pathname }) => {
         )}
       </TutorialContainer>
       <ConfirmButton>
-        <ConfirmBtn message="閉じる" onClick={() => closeModal} />
+        <ConfirmBtn onClick={() => closeModal}>閉じる</ConfirmBtn>
       </ConfirmButton>
     </Modal>
   );
@@ -106,6 +103,23 @@ const ConfirmButton = styled.div`
   width: 400px;
   display: flex;
   justify-content: center;
+`;
+
+const ConfirmBtn = styled(RawButton)`
+  display: block;
+  width: 100px;
+  height: 25px;
+  font-size: 14px;
+  font-family: inherit;
+  font-weight: lighter;
+  line-height: 25px;
+  border: 1px solid #fff;
+  border-radius: 10px;
+  background-color: inherit;
+  padding: 0 10px;
+  margin: 0 10px;
+  color: #fff;
+  cursor: pointer;
 `;
 
 const customStyles = {

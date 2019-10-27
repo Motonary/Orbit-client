@@ -5,12 +5,12 @@ import Alert from "react-s-alert";
 import Button from "../../atoms/Button";
 import Img from "../../atoms/Image";
 
-import { TopPageImgs } from "../../../constants/images";
+import { TopPageImgs } from "../../../constants/ImagesUrl";
 import TopLogo from "../../../images/index/logo.png";
 import Planet from "../../../images/index/top_earth.png";
 
-import SignInForm from "../../molecules/forms/SignInForm";
-import SignUpForm from "../../molecules/forms/SignUpForm";
+import SignInForm from "../../molecules/Forms/SignInForm";
+import SignUpForm from "../../molecules/Forms/SignUpForm";
 
 interface Props extends React.Attributes {
   currentUser: any;

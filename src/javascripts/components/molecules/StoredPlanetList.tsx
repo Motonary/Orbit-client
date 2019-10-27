@@ -170,7 +170,7 @@ const Year = styled.div`
   font-size: 16px;
   border: solid 1px #fff;
   border-radius: 50%;
-  background-color: $bg-common-color;
+  background-color: #0d171f;
 
   &:nth-child(2n + 1) {
     align-content: flex-start;
@@ -189,7 +189,7 @@ const Day = styled.div`
   line-height: 60px;
   border: solid 1px #fff;
   border-radius: 50%;
-  background-color: $bg-common-color;
+  background-color: #0d171f;
 `;
 
 export default connect(

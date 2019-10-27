@@ -66,8 +66,8 @@ const ProjectList = styled.ul`
 
 const _FixedStarInList = styled(FixedStarInList)`
   list-style: none;
-  width: $available-planet-size;
-  height: $available-planet-size;
+  width: 40px;
+  height: 40px;
   margin: 5px auto;
   cursor: pointer;
 `;

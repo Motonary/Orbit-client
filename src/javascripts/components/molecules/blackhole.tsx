@@ -14,7 +14,7 @@ import {
   resetSelectedAssignment
 } from "../../actions/assignments";
 
-import { DeleteActions } from "../../constants/images";
+import { DeleteActions } from "../../constants/ImagesUrl";
 
 interface Props {
   icon: string;

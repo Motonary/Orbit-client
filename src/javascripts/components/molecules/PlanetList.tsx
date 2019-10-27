@@ -48,21 +48,21 @@ class PlanetList extends React.Component<Props, {}> {
 const Root = styled.li`
   list-style: none;
   color: #fff;
-  width: $available-planet-size;
-  height: $available-planet-size;
+  width: 40px;
+  height: 40px;
   margin-right: 10px;
   border-radius: 50%;
 `;
 
 const _Planet = styled(Planet)`
-  width: $available-planet-size;
-  height: $available-planet-size;
+  width: 40px;
+  height: 40px;
   border-radius: 50%;
   cursor: pointer;
 
   img {
-    width: $available-planet-size;
-    height: $available-planet-size;
+    width: 40px;
+    height: 40px;
   }
 `;
 

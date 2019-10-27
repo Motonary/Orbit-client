@@ -10,7 +10,7 @@ import {
 } from "../../actions/assignments";
 import { selectProject, disselectProject } from "../../actions/projects";
 
-import { PlanetImgs } from "../../constants/images";
+import { PlanetImgs } from "../../constants/ImagesUrl";
 
 interface Props {
   className?: string;

@@ -12,7 +12,7 @@ import {
 } from "../../actions/assignments";
 import { destroyProject, resetSelectedProject } from "../../actions/projects";
 
-import { DeleteActions } from "../../constants/images";
+import { DeleteActions } from "../../constants/ImagesUrl";
 
 interface Props {
   icon: string;

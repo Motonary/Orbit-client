@@ -3,14 +3,14 @@ import * as React from "react";
 import { connect } from "react-redux";
 
 import Img from "../atoms/Image";
-import { shiver } from "../common/keyframes";
+import { shiver } from "../common/Keyframes";
 
 import {
   setCurrentProject,
   fetchRevolvingProjects
 } from "../../actions/projects";
 
-import { PlanetImgs } from "../../constants/images";
+import { PlanetImgs } from "../../constants/ImagesUrl";
 
 interface Props {
   history: any;

@@ -1,6 +1,5 @@
 import * as React from "react";
 import { connect } from "react-redux";
-import { expireCurrentUser } from "../../../actions/users";
 
 interface Props {
   history: any;
@@ -8,12 +7,6 @@ interface Props {
 }
 
 class SignOutBtn extends React.Component<Props, {}> {
-  onClickSignOutButton() {
-    if (window.confirm("サインアウトしますか？")) {
-      this.props.expireCurrentUser(() => this.props.history.push("/"));
-    }
-  }
-
   render() {
     return (
       <button

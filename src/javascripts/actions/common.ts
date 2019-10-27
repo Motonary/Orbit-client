@@ -1,5 +1,5 @@
-import { actionTypes } from "../constants/action-types";
-import { BaseAction } from "../constants/static-types";
+import { actionTypes } from "../constants/ActionTypes";
+import { BaseAction } from "../constants/StaticTypes";
 
 // -------------------------------------------------------------------------------------
 // SelectedStar

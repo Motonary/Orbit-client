@@ -67,6 +67,8 @@
     "src/jest.config.js",
     "src/__mocks__",
     "src/__tests__",
-    "src/javascripts/components/__stories__"
+    "src/javascripts/components/__stories__",
+    "src/javascripts/components/common/FlashStyle.ts",
+    "src/javascripts/components/common/GlobalStyle.ts"
   ]
 }

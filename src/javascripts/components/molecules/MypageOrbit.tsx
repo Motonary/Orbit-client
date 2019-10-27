@@ -4,8 +4,8 @@ import { connect } from "react-redux";
 
 import PopupProjectCard from "../atoms/PopupProjectCard";
 import Planet from "./Planet";
-import { top, right, left, bottom } from "../common/position";
-import { rotate } from "../common/keyframes";
+import { top, right, left, bottom } from "../common/Position";
+import { rotate } from "../common/Keyframes";
 
 import {
   setCurrentProject,

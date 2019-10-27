@@ -4,7 +4,7 @@ import * as React from "react";
 import PlanetList from "./PlanetList";
 import PlanetHolderOpener from "../atoms/PlanetHolderOpener";
 
-import { FixedStarImgs, NormalPlanetImgs } from "../../constants/images";
+import { FixedStarImgs, NormalPlanetImgs } from "../../constants/ImagesUrl";
 
 interface Props {
   pathname: any;

@@ -69,7 +69,7 @@ const SelectButton = styled.label`
   background-color: #fff;
   border: 1px solid #fff;
   border-radius: 20px;
-  color: $bg-common-color;
+  color: #0d171f;
 
   font-size: 14px;
   line-height: 1.5;
