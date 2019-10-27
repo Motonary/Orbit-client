@@ -1,26 +1,40 @@
 import styled from "@emotion/styled";
 import * as React from "react";
+import { connect } from "react-redux";
 import Alert from "react-s-alert";
 
-import UserImgUpdater from "../molecules/user-img-updater";
-import ProfileUpdateForm from "../molecules/forms/profile-update-form";
-import SignOutBtn from "../atoms/buttons/sign-out-btn";
+import UserImgUpdateForm from "../molecules/UserImageUpdateForm";
+import ProfileUpdateForm from "../molecules/Forms/ProfileUpdateForm";
+import RawButton from "../atoms/RawButton";
 
-interface SettingPageMainProps {
+import { expireCurrentUser } from "../../actions/users";
+
+interface Props {
   currentUser: any;
   history: any;
+
+  expireCurrentUser: any;
 }
-const SettingPageMain: React.SFC<SettingPageMainProps> = ({
+const SettingPageMain: React.FC<Props> = ({
   currentUser,
-  history
-}) => (
-  <Root>
-    <UserImgUpdater currentUser={currentUser} />
-    <ProfileUpdateForm history={history} />
-    <SignOutBtn history={history} />
-    <Alert />
-  </Root>
-);
+  history,
+  expireCurrentUser
+}) => {
+  function onSignOutButtonClick() {
+    if (window.confirm("サインアウトしますか？")) {
+      expireCurrentUser(() => history.push("/"));
+    }
+  }
+
+  return (
+    <Root>
+      <UserImgUpdateForm currentUser={currentUser} />
+      <ProfileUpdateForm history={history} />
+      <SignOutBtn onClick={() => onSignOutButtonClick()}>SIGN OUT</SignOutBtn>
+      <Alert />
+    </Root>
+  );
+};
 
 const Root = styled.div`
   display: flex;
@@ -35,4 +49,27 @@ const Root = styled.div`
   text-align: center;
 `;
 
-export default SettingPageMain;
+const SignOutBtn = styled(RawButton)`
+  display: block;
+  width: 200px;
+  margin: 20px auto 0;
+  padding: 1px 20px;
+  background-color: #ff0000;
+  border: 1px solid #ff0000;
+  border-radius: 20px;
+  color: #fff;
+
+  font-size: 14px;
+  line-height: 1.5;
+  font-family: sans-serif;
+  font-style: normal;
+  font-weight: lighter;
+  letter-spacing: 4px;
+
+  cursor: pointer;
+`;
+
+export default connect(
+  null,
+  { expireCurrentUser }
+)(SettingPageMain);

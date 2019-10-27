@@ -4,7 +4,7 @@ import * as React from "react";
 import * as Size from "../../constants/Size";
 import Button from "../atoms/Button";
 import Img from "../atoms/Image";
-import { HeaderIcons } from "../../constants/images";
+import { HeaderIcons } from "../../constants/ImagesUrl";
 
 interface Props {
   currentUser: any;

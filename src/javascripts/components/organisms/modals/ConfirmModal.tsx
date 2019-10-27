@@ -3,7 +3,7 @@ import * as React from "react";
 import { connect } from "react-redux";
 import Modal from "react-modal";
 
-import ConfirmBtn from "../../atoms/buttons/confirm-btn";
+import RawButton from "../../atoms/RawButton";
 
 import { resetDestroyAction, resetModalStatus } from "../../../actions/common";
 
@@ -48,8 +48,8 @@ const ConfirmModal: React.FC<Props> = ({ motionControll, modalOpen }) => {
           : confirmState["restore"]}
       </Warning>
       <ConfirmButtons>
-        <ConfirmBtn message="いいえ" onClick={() => closeModal} />
-        <ConfirmBtn message="はい" onClick={() => igniteAction} />
+        <ConfirmBtn onClick={() => closeModal}>いいえ</ConfirmBtn>
+        <ConfirmBtn onClick={() => igniteAction}>はい</ConfirmBtn>
       </ConfirmButtons>
     </Modal>
   );
@@ -69,6 +69,23 @@ const ConfirmButtons = styled.div`
   width: 400px;
   display: flex;
   justify-content: center;
+`;
+
+const ConfirmBtn = styled(RawButton)`
+  display: block;
+  width: 100px;
+  height: 25px;
+  font-size: 14px;
+  font-family: inherit;
+  font-weight: lighter;
+  line-height: 25px;
+  border: 1px solid #fff;
+  border-radius: 10px;
+  background-color: inherit;
+  padding: 0 10px;
+  margin: 0 10px;
+  color: #fff;
+  cursor: pointer;
 `;
 
 const customStyles = {
