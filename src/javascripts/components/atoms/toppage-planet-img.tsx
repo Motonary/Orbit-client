@@ -1,5 +1,6 @@
 import * as React from "react";
-import ImgPlanet from "../../../images/index/top_earth.png";
+
+const ImgPlanet = `${process.env.PUBLIC_URL}/images/index/top_earth.png`;
 
 const TopPagePlanet = () => (
   <div className="planet-img-container">
