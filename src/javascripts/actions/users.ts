@@ -1,8 +1,8 @@
 import axios from "axios";
 import Alert from "react-s-alert";
-import { actionTypes } from "../constants/ActionTypes";
-import { BaseAction } from "../constants/StaticTypes";
-import { ROOT_URL } from "../constants/RootUrl";
+import { actionTypes } from "../constants/action-types";
+import { BaseAction } from "../constants/static-types";
+import { ROOT_URL } from "../constants/url";
 
 // -------------------------------------------------------------------------------------
 // Flash

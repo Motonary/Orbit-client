@@ -1,9 +1,10 @@
-import styled from "@emotion/styled";
 import React from "react";
 import { connect } from "react-redux";
+import _ from "lodash";
 import anime from "animejs";
 
-import Img from "../atoms/Image";
+import ActionBtn from "../atoms/buttons/action-btn";
+
 import {
   setDestroyAction,
   resetDestroyAction,
@@ -14,11 +15,11 @@ import {
   resetSelectedAssignment
 } from "../../actions/assignments";
 
-import { DeleteActions } from "../../constants/ImagesUrl";
+import { DeleteActions } from "../../constants/images";
 
-interface Props {
+interface BlackHoleProps {
   icon: string;
-  className?: string;
+  actionBtnClass: string;
   motionControll: () => void;
   onClick: () => void;
 
@@ -34,7 +35,7 @@ interface Props {
   resetSelectedAssignment: any;
 }
 
-class BlackHole extends React.Component<Props, {}> {
+class BlackHole extends React.Component<BlackHoleProps, {}> {
   componentDidUpdate(/*prevProps, prevState*/) {
     if (this.props.selectedAssignments.length === 0) return;
     if (this.props.modalOpen !== "") return;
@@ -44,7 +45,7 @@ class BlackHole extends React.Component<Props, {}> {
 
   // 削除されたAssignmentIdをcanvasのidから特定し、destroyedAssignmentsに格納
   removeAssignmentData(parent: any) {
-    parent.forEach((destroyDom: any) => {
+    _.forEach(parent, (destroyDom: any) => {
       let destroyedAssignmentId: string = destroyDom.id.split("-")[1]; // <div #planet-2-Mras />
       this.props.destroyAssignment(destroyedAssignmentId);
     });
@@ -133,18 +134,16 @@ class BlackHole extends React.Component<Props, {}> {
   }
 
   render() {
-    const { className, icon, onClick } = this.props;
-    const holderHeight = "100px";
-
+    const { icon, actionBtnClass, onClick } = this.props;
     return (
-      <Root className={className} onClick={onClick}>
-        <Img src={icon} alt={icon} height={holderHeight} width={holderHeight} />
-      </Root>
+      <ActionBtn
+        icon={icon}
+        actionBtnClass={actionBtnClass}
+        onClick={onClick}
+      />
     );
   }
 }
-
-const Root = styled.li``;
 
 export default connect(
   ({
