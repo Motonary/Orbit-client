@@ -1,4 +1,4 @@
-import { actionTypes } from "../constants/ActionTypes";
+import { actionTypes } from "../constants/action-types";
 import {
   SelectedStarAction,
   IsDestroyIgnitedAction,

@@ -1,19 +1,20 @@
-import styled from "@emotion/styled";
 import * as React from "react";
 import { connect } from "react-redux";
 import Alert from "react-s-alert";
 
-import Img from "../atoms/Image";
+import CheckMark from "../atoms/check-mark";
+import PlanetImg from "../atoms/planet-img";
+
 import {
   selectAssignment,
   disselectAssignment
 } from "../../actions/assignments";
 import { selectProject, disselectProject } from "../../actions/projects";
 
-import { PlanetImgs } from "../../constants/ImagesUrl";
+import { PlanetImgs } from "../../constants/images";
 
-interface Props {
-  className?: string;
+interface PlanetProps {
+  className: string;
   planetType: string;
 
   selectedProject: any;
@@ -25,26 +26,18 @@ interface Props {
   disselectProject: any;
 }
 
-const Planet: React.FC<Props> = ({
-  className,
-  planetType,
-  selectedProject,
-  selectedAssignments,
-  ...props
-}) => {
-  function onMouseOver(e: MouseEvent) {
-    const targetPlanet = (e.target as HTMLElement).parentNode.parentNode
-      .firstChild; // e.g. div.detail-ballon
-    const firstClass = (targetPlanet as HTMLElement).classList[0];
+class Planet extends React.Component<PlanetProps, {}> {
+  onMouseOver(e: any) {
+    const targetPlanet = e.target.parentNode.parentNode.firstChild; // e.g. div.detail-ballon
+    const firstClass = targetPlanet.classList[0];
 
     if (firstClass && firstClass.includes("popup")) {
-      (targetPlanet as HTMLElement).style.display = "block";
+      targetPlanet.style.display = "block";
     }
   }
 
-  function onMouseOut(e: MouseEvent) {
-    const targetPlanet: any = (e.target as HTMLElement).parentNode.parentNode
-      .firstChild;
+  onMouseOut(e: any) {
+    const targetPlanet: any = e.target.parentNode.parentNode.firstChild;
     const firstClass = targetPlanet.classList[0];
 
     if (firstClass && firstClass.includes("popup")) {
@@ -52,7 +45,7 @@ const Planet: React.FC<Props> = ({
     }
   }
 
-  function showErrorFlash(errorMessage: string) {
+  showErrorFlash(errorMessage: string) {
     Alert.error(errorMessage, {
       position: "top-right",
       effect: "jelly",
@@ -61,7 +54,7 @@ const Planet: React.FC<Props> = ({
     });
   }
 
-  function onSelected(e: MouseEvent) {
+  onSelected(e: any) {
     // TODO: ifがネストしているなど可読性が低いので要リファクタリング
     // この条件分岐は仕様的にリファクタは厳しいと思います
     const target: any = e.target.parentNode.children[1]; // e.target = .planet-img-container -> div.mark-container
@@ -73,26 +66,32 @@ const Planet: React.FC<Props> = ({
     if (target.style.display === "block") {
       target.style.display = "none";
       if (selectedPlanet[0] === "planet") {
-        disselectAssignment(`${selectedPlanet[1]}-${selectedPlanet[2]}`);
+        this.props.disselectAssignment(
+          `${selectedPlanet[1]}-${selectedPlanet[2]}`
+        );
       } else {
-        disselectProject(`${selectedPlanet[1]}-${selectedPlanet[2]}`);
+        this.props.disselectProject(
+          `${selectedPlanet[1]}-${selectedPlanet[2]}`
+        );
       }
     } else if (target.style.display === "" || target.style.display === "none") {
       if (selectedPlanet[0] === "planet") {
-        if (selectedProject.length === 0) {
+        if (this.props.selectedProject.length === 0) {
           target.style.display = "block";
-          selectAssignment(`${selectedPlanet[1]}-${selectedPlanet[2]}`);
+          this.props.selectAssignment(
+            `${selectedPlanet[1]}-${selectedPlanet[2]}`
+          );
         } else {
-          showErrorFlash(
+          this.showErrorFlash(
             "Unable to select both fixed star and planets at the same time..."
           );
         }
       } else {
-        if (selectedAssignments.length === 0) {
+        if (this.props.selectedAssignments.length === 0) {
           target.style.display = "block";
-          selectProject(`${selectedPlanet[1]}-${selectedPlanet[2]}`);
+          this.props.selectProject(`${selectedPlanet[1]}-${selectedPlanet[2]}`);
         } else {
-          showErrorFlash(
+          this.showErrorFlash(
             "Unable to select both fixed star and planets at the same time..."
           );
         }
@@ -100,51 +99,21 @@ const Planet: React.FC<Props> = ({
     }
   }
 
-  return (
-    <Root
-      className={className}
-      onClick={() => onSelected}
-      onMouseOver={() => onMouseOver}
-      onMouseOut={() => onMouseOut}
-    >
-      <Img src={PlanetImgs[planetType]} alt={planetType} />
-      <MarkContainer>
+  render() {
+    const { className, planetType } = this.props;
+    return (
+      <div
+        className={className}
+        onClick={this.onSelected.bind(this)}
+        onMouseOver={this.onMouseOver.bind(this)}
+        onMouseOut={this.onMouseOut.bind(this)}
+      >
+        <PlanetImg src={PlanetImgs[planetType]} />
         <CheckMark />
-      </MarkContainer>
-    </Root>
-  );
-};
-
-const Root = styled.div`
-  width: 100%;
-  height: 100%;
-  position: relative;
-  cursor: pointer;
-
-  img {
-    width: 100%;
-    height: 100%;
-    z-index: 200;
+      </div>
+    );
   }
-`;
-
-const MarkContainer = styled.div`
-  display: none;
-  position: absolute;
-  top: 40%;
-  left: 35%;
-  width: 100%;
-  height: 100%;
-`;
-
-const CheckMark = styled.div`
-  width: 20px;
-  height: 30px;
-  border: solid 3px #000;
-  border-left: 0;
-  border-top: 0;
-  transform: translateY(-50%) rotate(45deg);
-`;
+}
 
 export default connect(
   ({ selectedProject, selectedAssignments }: any) => ({

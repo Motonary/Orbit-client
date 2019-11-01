@@ -1,12 +1,12 @@
-import { actionTypes } from "../constants/ActionTypes";
-import { BaseAction } from "../constants/StaticTypes";
+import { actionTypes } from "../constants/action-types";
+import { BaseAction } from "../constants/static-types";
 
 // -------------------------------------------------------------------------------------
 // SelectedStar
 // -------------------------------------------------------------------------------------
 interface SetSelectedStarAction extends BaseAction {
   type: string;
-  payload: { star_type: string };
+  payload: { star_type: number }; // TODO: stringかも
 }
 
 interface ResetSelectedStarAction extends BaseAction {
@@ -17,17 +17,17 @@ export type SelectedStarAction =
   | SetSelectedStarAction
   | ResetSelectedStarAction;
 
-export function setSelectedStar(star_type: string): SetSelectedStarAction {
+export function setSelectedStar(star_type: any): SetSelectedStarAction {
   return {
     type: actionTypes.SET_SELECTED_STAR,
     payload: { star_type }
   };
 }
 
-export function resetSelectedStar(star_type = ""): ResetSelectedStarAction {
+export function resetSelectedStar(status: any): ResetSelectedStarAction {
   return {
     type: actionTypes.RESET_SELECTED_STAR,
-    payload: { star_type }
+    payload: { status }
   };
 }
 
@@ -78,14 +78,14 @@ interface ResetModalStatusAction extends BaseAction {
 
 export type ModalOpenAction = SetModalStatusAction | ResetModalStatusAction;
 
-export function setModalStatus(status = true): SetModalStatusAction {
+export function setModalStatus(status: any): SetModalStatusAction {
   return {
     type: actionTypes.OPEN_MODAL,
     payload: { status }
   };
 }
 
-export function resetModalStatus(status = false): ResetModalStatusAction {
+export function resetModalStatus(status: any): ResetModalStatusAction {
   return {
     type: actionTypes.CLOSE_MODAL,
     payload: { status }

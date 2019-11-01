@@ -1,18 +1,18 @@
-import styled from "@emotion/styled";
 import * as React from "react";
 import { connect } from "react-redux";
 import anime from "animejs";
 
-import Img from "../atoms/Image";
+import ActionBtn from "../atoms/buttons/action-btn";
+
 import {
   restoreAssignment,
   resetSelectedAssignment
 } from "../../actions/assignments";
 import { resetDestroyAction } from "../../actions/common";
 
-interface Props {
-  className?: string;
+interface RevivalProps {
   icon: string;
+  actionBtnClass: string;
   onClick: () => void;
 
   selectedAssignments: any;
@@ -25,7 +25,7 @@ interface Props {
   resetDestroyAction: any;
 }
 
-class Revival extends React.Component<Props, {}> {
+class Revival extends React.Component<RevivalProps, {}> {
   componentDidUpdate() {
     if (this.props.selectedAssignments.length === 0) return;
     if (this.props.modalOpen !== "") return;
@@ -65,18 +65,17 @@ class Revival extends React.Component<Props, {}> {
   }
 
   render() {
-    const { className, icon, onClick } = this.props;
-    const holderHeight = "100px";
+    const { icon, actionBtnClass, onClick } = this.props;
 
     return (
-      <Root className={className} onClick={onClick}>
-        <Img src={icon} alt={icon} height={holderHeight} width={holderHeight} />
-      </Root>
+      <ActionBtn
+        icon={icon}
+        actionBtnClass={actionBtnClass}
+        onClick={onClick}
+      />
     );
   }
 }
-
-const Root = styled.li``;
 
 export default connect(
   ({ selectedAssignments, selectedDestroyAction, modalOpen }: any) => ({

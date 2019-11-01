@@ -1,8 +1,6 @@
 import * as React from "react";
 import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
-
-import GlobalStyle from "../common/GlobalStyle";
 import { fetchCurrentUser } from "../../actions/users";
 
 interface Props {
@@ -15,16 +13,10 @@ class Main extends React.Component<Props, {}> {
     if (sessionStorage.getItem("jwt")) this.props.fetchCurrentUser();
   }
   render() {
-    return (
-      <>
-        <GlobalStyle />
-
-        {sessionStorage.getItem("jwt") && !this.props.currentUser ? (
-          <div>Loading...</div>
-        ) : (
-          this.props.children
-        )}
-      </>
+    return sessionStorage.getItem("jwt") && !this.props.currentUser ? (
+      <div>Loading...</div>
+    ) : (
+      this.props.children
     );
   }
 }
