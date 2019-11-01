@@ -6,8 +6,8 @@
   "author": "UT mafia",
   "license": "ISC",
   "scripts": {
-    "release": "webpack --mode production --config webpack.config.js",
-    "watch": "webpack-dev-server --mode development --history-api-fallback",
+    "build": "webpack",
+    "watch": "webpack-dev-server",
     "lint": "tslint ./src/**/*.{ts,tsx}",
     "fix": "tslint --fix ./src/javascripts/**/*.{ts,tsx}",
     "storybook": "start-storybook -p 6006",
