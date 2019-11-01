@@ -1,7 +1,7 @@
 import styled from "@emotion/styled";
 import * as React from "react";
 
-import Img from "./Image";
+import Img from "../atoms/Image";
 import { ImgHolderOpen } from "../../constants/ImagesUrl";
 
 interface Props {
