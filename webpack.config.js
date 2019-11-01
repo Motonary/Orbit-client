@@ -17,7 +17,7 @@ module.exports = {
     contentBase: 'dist',
     port: 4000,
     historyApiFallback: true,
-    inline: true,
+    hot: true,
   },
   module: {
     rules: [
@@ -27,6 +27,17 @@ module.exports = {
           fallback: 'style-loader',
           use: 'css-loader!sass-loader',
         }),
+      },
+      {
+        test: /\.(png|jpg|gif)$/,
+        use: [
+          {
+            loader: 'file-loader',
+            options: {
+              name: '[path][name].[ext]',
+            },
+          },
+        ],
       },
       {
         test: /\.(ts|tsx)$/,
