@@ -1,7 +1,7 @@
 import styled from "@emotion/styled";
 import * as React from "react";
 
-import Img from "./Image";
+import Img from "../atoms/Image";
 import { PlanetImgs } from "../../constants/ImagesUrl";
 
 interface Props {
