@@ -58,15 +58,5 @@
     /* Experimental Options */
     // "experimentalDecorators": true,        /* Enables experimental support for ES7 decorators. */
     // "emitDecoratorMetadata": true,         /* Enables experimental support for emitting type metadata for decorators. */
-  },
-  "exclude": [
-    "node_modules",
-    "dist",
-    "coverage",
-    "webpack.config.js", // これしないとエラー起きるけどそこ直せるなら削除した方がいいかも
-    "src/jest.config.js",
-    "src/__mocks__",
-    "src/__tests__",
-    "src/components/__stories__"
-  ]
+  }
 }
