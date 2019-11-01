@@ -1,13 +1,13 @@
 const path = require('path')
-const ExtractTextPlugin = require('extract-text-webpack-plugin')
 
 module.exports = {
   entry: {
     bundle: './src/javascripts/app.tsx',
   },
   output: {
-    path: path.resolve(__dirname, './dist'),
-    filename: '[name].js',
+    path: path.resolve(__dirname, "./dist"),
+    filename: "[name].js",
+    chunkFilename: "[name].bundle.js",
     publicPath: '/',
   },
   resolve: {
@@ -22,13 +22,6 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.scss$/,
-        use: ExtractTextPlugin.extract({
-          fallback: 'style-loader',
-          use: 'css-loader!sass-loader',
-        }),
-      },
-      {
         test: /\.(png|jpg|gif)$/,
         use: [
           {
@@ -40,13 +33,12 @@ module.exports = {
         ],
       },
       {
-        test: /\.(ts|tsx)$/,
-        exclude: /node_modules/,
-        use: {
-          loader: 'ts-loader',
-        },
-      },
+        test: /\.tsx?$/,
+        loader: "ts-loader",
+        options: {
+          transpileOnly: true
+        }
+      }
     ],
-  },
-  plugins: [new ExtractTextPlugin({ filename: '[name].css', allChunks: true })],
+  }
 }

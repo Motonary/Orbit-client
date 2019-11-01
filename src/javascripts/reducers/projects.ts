@@ -1,5 +1,4 @@
-import { actionTypes } from "../constants/action-types";
-import _ from "lodash";
+import { actionTypes } from "../constants/ActionTypes";
 import {
   RevoivingProjectsAction,
   CurrentProjectAction,
