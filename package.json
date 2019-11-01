@@ -10,7 +10,7 @@
     "watch": "webpack-dev-server --mode development --history-api-fallback",
     "lint": "prettier --check './src/**/*.ts' './src/**/*.tsx'",
     "fix": "prettier --write",
-    "fix:all": "prettier --write ./src/javascripts/**/*.{ts,tsx}",
+    "fix:all": "prettier --write ./src/**/*.{ts,tsx}",
     "storybook": "start-storybook -p 6006",
     "test": "jest"
   },
