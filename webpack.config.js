@@ -1,20 +1,20 @@
-const path = require("path")
+const path = require('path')
 
 module.exports = {
   entry: {
-    bundle: "./src/app.tsx",
+    bundle: './src/javascripts/app.tsx',
   },
   output: {
     path: path.resolve(__dirname, "./dist"),
     filename: "[name].js",
     chunkFilename: "[name].bundle.js",
-    publicPath: "/",
+    publicPath: '/',
   },
   resolve: {
-    extensions: [".js", ".ts", ".tsx"],
+    extensions: ['.js', '.ts', '.tsx'],
   },
   devServer: {
-    contentBase: "dist",
+    contentBase: 'dist',
     port: 4000,
     historyApiFallback: true,
     hot: true,
