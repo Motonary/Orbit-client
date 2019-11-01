@@ -6,7 +6,7 @@ interface Props {
   children?: string;
   disabled?: boolean;
   onClick?: React.MouseEventHandler;
-  type?: string;
+  type?: "button" | "reset" | "submit";
 }
 
 const RawButton: React.FC<Props> = ({
@@ -19,7 +19,7 @@ const RawButton: React.FC<Props> = ({
   <Root
     className={className}
     disabled={disabled}
-    onClicke={() => onClick}
+    onClick={() => onClick}
     type={type}
   >
     {children}

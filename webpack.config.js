@@ -1,22 +1,23 @@
-const path = require('path')
+const path = require("path")
 
 module.exports = {
   entry: {
-    bundle: './src/app.tsx',
+    bundle: "./src/app.tsx",
   },
   output: {
     path: path.resolve(__dirname, "./dist"),
     filename: "[name].js",
     chunkFilename: "[name].bundle.js",
-    publicPath: '/',
+    publicPath: "/",
   },
   resolve: {
-    extensions: ['.js', '.ts', '.tsx'],
+    extensions: [".js", ".ts", ".tsx"],
   },
   devServer: {
-    contentBase: 'dist',
+    contentBase: "dist",
+    host: "0.0.0.0",
     port: 4000,
-    historyApiFallback: true,
+    inline: true,
     hot: true,
   },
   module: {
@@ -25,9 +26,9 @@ module.exports = {
         test: /\.(png|jpg|gif)$/,
         use: [
           {
-            loader: 'file-loader',
+            loader: "file-loader",
             options: {
-              name: '[path][name].[ext]',
+              name: "[path][name].[ext]",
             },
           },
         ],

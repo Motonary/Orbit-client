@@ -6,11 +6,11 @@
   "author": "Motonary",
   "license": "ISC",
   "scripts": {
-    "build": "webpack --mode production --config webpack.config.js",
-    "watch": "webpack-dev-server --mode development --history-api-fallback",
-    "lint": "prettier --check './src/**/*.ts' './src/**/*.tsx'",
+    "build": "webpack",
+    "watch": "webpack-dev-server",
+    "lint": "prettier --check 'src/**/*.ts' 'src/**/*.tsx'",
     "fix": "prettier --write",
-    "fix:all": "prettier --write ./src/**/*.{ts,tsx}",
+    "fix:all": "prettier --write 'src/**/*.{ts,tsx}'",
     "storybook": "start-storybook -p 6006",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
