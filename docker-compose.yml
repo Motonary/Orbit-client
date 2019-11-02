@@ -2,15 +2,15 @@ version: '3.7'
 
 services:
   orbit-client:
-    container_name: orbit-api
+    container_name: orbit-client
     build:
       context: .
       dockerfile: Dockerfile
     volumes:
-      - '.:/app'
-      - '/app/node_modules'
+      - .:/app
+      - /app/node_modules
     ports:
-      - '4000:4000'
-      - '6000:6000'
+      - 4000:4000
+      - 6006:6006
     environment:
       - NODE_ENV=development
