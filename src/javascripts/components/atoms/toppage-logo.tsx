@@ -1,6 +1,6 @@
 import * as React from "react";
 
-const ImgLogo = `/images/planets/star_1.png`;
+const ImgLogo = `/images/index/logo.png`;
 
 const TopPageLogo = () => (
   <div className="logo-container">
