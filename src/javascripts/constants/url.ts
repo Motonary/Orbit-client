@@ -1,3 +1,11 @@
-// TODO: developmentとproductionで場合分け
-export const ROOT_URL = "http://localhost:3000";
-// export const ROOT_URL = 'http://52.69.76.248:3000'
+export const ROOT_URL = (() => {
+  switch (process.env.NODE_ENV) {
+    case 'production':
+      return 'http://52.69.76.248'
+    case 'development':
+    case 'test':
+    case 'staging':
+    default:
+      return "http://localhost:3000"
+  }
+})();
