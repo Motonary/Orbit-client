@@ -1,0 +1,82 @@
+version: 2.1
+
+jobs:
+  lint:
+    docker:
+      # dockerのimageに合わせる
+      - image: circleci/node:12.13.0
+
+    steps:
+      - checkout
+
+      - restore_cache:
+          keys:
+          - node-dependencies-{{ checksum "package.json" }}
+          - node-dependencies-
+
+      - run: npm install
+
+      - save_cache:
+          paths:
+            - node_modules
+          key: node-dependencies-{{ checksum "package.json" }}
+
+      - run: npm run lint
+
+  build:
+    docker:
+      # dockerのimageに合わせる
+      - image: circleci/node:12.13.0
+    steps:
+      - checkout
+
+      - restore_cache:
+          keys:
+          - node-dependencies-{{ checksum "package.json" }}
+
+      - run: npm install
+
+      - save_cache:
+          paths:
+            - node_modules
+          key: node-dependencies-{{ checksum "package.json" }}
+
+      - run: npm run build
+      - persist_to_workspace:
+          root: .
+          paths:
+            - public/*
+            - node_modules/*
+
+  deploy:
+    docker:
+      - image: circleci/python:3.7-stretch
+    steps:
+      - run:
+          name: Install awscli
+          command: sudo pip install awscli
+      - run:
+          name: Deploy to S3
+          command: aws s3 sync public s3://orbit-prod/public --delete
+
+workflows:
+  version: 2.1
+  run-lint:
+    jobs:
+      - lint:
+          filters:
+            branches:
+              ignore: master
+
+  build-and-deploy:
+    jobs:
+      - build
+          # filters:
+          #   branches:
+          #     only: master
+      - deploy:
+          requires:
+            - build
+          # filters:
+          #   branches:
+          #     only: master
