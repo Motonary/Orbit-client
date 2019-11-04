@@ -45,19 +45,20 @@ jobs:
       - persist_to_workspace:
           root: .
           paths:
-            - public/*
-            - node_modules/*
+            - dist/*
 
   deploy:
     docker:
       - image: circleci/python:3.7-stretch
     steps:
+      - attach_workspace:
+          at: .
       - run:
           name: Install awscli
           command: sudo pip install awscli
       - run:
           name: Deploy to S3
-          command: aws s3 sync public s3://orbit-prod/public --delete
+          command: aws s3 sync dist/ s3://the-orbit-app.com --delete
 
 workflows:
   version: 2.1
@@ -70,13 +71,13 @@ workflows:
 
   build-and-deploy:
     jobs:
-      - build #:
-          # filters:
-          #   branches:
-          #     only: master
+      - build:
+          filters:
+            branches:
+              only: master
       - deploy:
           requires:
             - build
-          # filters:
-          #   branches:
-          #     only: master
+          filters:
+            branches:
+              only: master
