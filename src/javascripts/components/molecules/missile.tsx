@@ -45,7 +45,9 @@ class Missle extends React.Component<MissleProps, {}> {
       modalOpen,
       selectedDestroyAction
     } = this.props;
-    if (selectedAssignments.length === 0 && selectedProject.length === 0) return;
+    if (selectedAssignments.length === 0 && selectedProject.length === 0) {
+      return;
+    }
     if (modalOpen !== "") return;
     if (selectedDestroyAction !== "Missile") return;
     this.onIgniteDestroyAnimation();

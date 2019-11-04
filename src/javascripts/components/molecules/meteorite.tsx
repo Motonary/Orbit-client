@@ -45,7 +45,9 @@ class Meteorite extends React.Component<MeteoriteProps, {}> {
       modalOpen,
       selectedDestroyAction
     } = this.props;
-    if (selectedAssignments.length === 0 && selectedProject.length === 0) return;
+    if (selectedAssignments.length === 0 && selectedProject.length === 0) {
+      return;
+    }
     if (modalOpen !== "") return;
     if (selectedDestroyAction !== "Meteorite") return;
     this.onIgniteDestroyAnimation();
