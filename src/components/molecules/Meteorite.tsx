@@ -17,7 +17,6 @@ import { DeleteActions } from "../../constants/ImagesUrl";
 interface Props {
   icon: string;
   className?: string;
-  actionBtnClass: string;
   history: any;
   currentUser: any;
   motionControll: () => void;

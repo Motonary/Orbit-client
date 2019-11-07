@@ -4,7 +4,7 @@ import { connect } from "react-redux";
 import Alert from "react-s-alert";
 
 import UserImgUpdateForm from "../molecules/UserImageUpdateForm";
-import ProfileUpdateForm from "../molecules/forms/ProfileUpdateForm";
+import ProfileUpdateForm from "../molecules/Forms/ProfileUpdateForm";
 import RawButton from "../atoms/RawButton";
 
 import { expireCurrentUser } from "../../actions/users";
