@@ -1,10 +1,9 @@
 import * as React from "react";
-
-const ImgPlanet = "/images/index/top_earth.png";
+import { TopEarthImg } from "../../constants/images";
 
 const TopPagePlanet = () => (
   <div className="planet-img-container">
-    <img src={ImgPlanet} className="top-page-planet" />
+    <img src={TopEarthImg} className="top-page-planet" />
   </div>
 );
 
