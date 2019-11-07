@@ -14,12 +14,12 @@ module.exports = {
     extensions: [".js", ".ts", ".tsx"],
   },
   devServer: {
-    contentBase: "dist",
+    contentBase: path.join(__dirname, "dist"),
     host: "0.0.0.0",
     port: 4000,
-    historyApiFallBack: true,
     inline: true,
     hot: true,
+    historyApiFallback: true,
   },
   module: {
     rules: [
