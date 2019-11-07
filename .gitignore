@@ -1,5 +1,6 @@
 /node_modules
 /dist/bundle.js
+/dist/bundle.css
 
 # Ignore snapchat
 src/__tests__/**/__snapshots__
