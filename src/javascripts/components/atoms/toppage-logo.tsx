@@ -1,10 +1,9 @@
 import * as React from "react";
-
-const ImgLogo = `/images/index/logo.png`;
+import { LogoImg } from "../../constants/images";
 
 const TopPageLogo = () => (
   <div className="logo-container">
-    <img src={ImgLogo} className="top-page-logo" />
+    <img src={LogoImg} className="top-page-logo" />
   </div>
 );
 
