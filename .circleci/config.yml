@@ -1,83 +1,77 @@
 version: 2.1
-
+general_options: &general_options
+  docker:
+    - image: circleci/node:12.13.0
+  working_directory: ~/repo
 jobs:
-  lint:
-    docker:
-      # dockerのimageに合わせる
-      - image: circleci/node:12.13.0
-
+  prepare:
+    <<: *general_options
     steps:
       - checkout
-
       - restore_cache:
           keys:
-          - node-dependencies-{{ checksum "package.json" }}
-          - node-dependencies-
-
-      - run: npm install
-
+            - v1-dependencies-{{ checksum "package-lock.json" }}
+      - run:
+          name: Install dependencies
+          command: npm ci
       - save_cache:
+          key: v1-dependencies-{{ checksum "package-lock.json" }}
           paths:
             - node_modules
-          key: node-dependencies-{{ checksum "package.json" }}
-
-      - run: npm run lint
-
-  build:
-    docker:
-      # dockerのimageに合わせる
-      - image: circleci/node:12.13.0
-    steps:
-      - checkout
-
-      - restore_cache:
-          keys:
-          - node-dependencies-{{ checksum "package.json" }}
-
-      - run: npm install
-
-      - save_cache:
-          paths:
-            - node_modules
-          key: node-dependencies-{{ checksum "package.json" }}
-
-      - run: npm run build
       - persist_to_workspace:
-          root: .
+          root: ~/repo
+          paths:
+            - .
+  lint:
+    <<: *general_options
+    steps:
+      - attach_workspace:
+          at: ~/repo
+      - run:
+          name: Lint code
+          command: npm run lint
+  build:
+    <<: *general_options
+    steps:
+      - attach_workspace:
+          at: ~/repo
+      - run:
+          name: Build product
+          command: npm run build
+      - persist_to_workspace:
+          root: ~/repo
           paths:
             - dist/*
-
   deploy:
+    <<: *general_options
     docker:
       - image: circleci/python:3.7-stretch
     steps:
       - attach_workspace:
-          at: .
+          at: ~/repo
       - run:
           name: Install awscli
           command: sudo pip install awscli
       - run:
           name: Deploy to S3
           command: aws s3 sync dist/ s3://the-orbit-app.com --delete
-
 workflows:
   version: 2.1
-  run-lint:
+  default:
     jobs:
+      - prepare
       - lint:
-          filters:
-            branches:
-              ignore: master
-
-  build-and-deploy:
-    jobs:
-      - build:
-          filters:
-            branches:
-              only: master
-      - deploy:
           requires:
-            - build
-          filters:
-            branches:
-              only: master
+            - prepare
+      - build:
+          # filters:
+          #   branches:
+          #     only: master
+          requires:
+            - lint
+      - deploy:
+          # filters:
+          #   branches:
+          #     only: master
+          requires:
+              - build
