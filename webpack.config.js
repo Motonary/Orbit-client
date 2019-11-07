@@ -1,4 +1,6 @@
 const path = require("path")
+const ExtractTextPlugin = require("extract-text-webpack-plugin")
+const HtmlWebpackPlugin = require('html-webpack-plugin')
 
 module.exports = {
   entry: {
@@ -15,25 +17,16 @@ module.exports = {
   },
   devServer: {
     contentBase: path.join(__dirname, "dist"),
+    contentBase: "dist",
     host: "0.0.0.0",
     port: 4000,
+    historyApiFallback: true,
     inline: true,
     hot: true,
     historyApiFallback: true,
   },
   module: {
     rules: [
-      {
-        test: /\.(png|jpg|gif)$/,
-        use: [
-          {
-            loader: "file-loader",
-            options: {
-              name: "[path][name].[ext]",
-            },
-          },
-        ],
-      },
       {
         test: /\.tsx?$/,
         loader: "ts-loader",
@@ -42,5 +35,11 @@ module.exports = {
         }
       }
     ],
-  }
+  },
+  plugins: [
+    new ExtractTextPlugin({ filename: "[name].css", allChunks: true }),
+    new HtmlWebpackPlugin({
+      template: "./src/index.html"
+    }),
+  ],
 }

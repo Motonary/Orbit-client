@@ -1,6 +1,8 @@
 import { css, Global } from "@emotion/core";
 import * as React from "react";
 
+import { Background } from "../../constants/ImagesUrl";
+
 function GlobalStyle() {
   return <Global styles={globalStyle} />;
 }
@@ -17,7 +19,7 @@ const globalStyle = css`
     height: 100%;
     margin: 0;
     padding: 0;
-    background: #0d1935 url("../images/universe.png") no-repeat center center;
+    background: #0d1935 url(${Background}) no-repeat center center;
     background-size: cover;
   }
   .container {
