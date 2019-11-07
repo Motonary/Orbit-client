@@ -64,9 +64,6 @@ workflows:
           requires:
             - prepare
       - build:
-          filters:
-            branches:
-              only: master
           requires:
             - lint
       - deploy:
