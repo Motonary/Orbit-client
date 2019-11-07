@@ -9,9 +9,9 @@ import {
 } from "../../../actions/projects";
 
 import { Root } from "./CommonStyleComponents";
-import Header from "../../organisms/Header";
+import Header from "../../organisms/header";
 import ProjectPageMain from "../../organisms/ProjectPageMain";
-import Footer from "../../organisms/Footer";
+import Footer from "../../organisms/footer";
 
 interface Props {
   currentUser: any;

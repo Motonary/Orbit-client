@@ -7,8 +7,8 @@ import Img from "../../atoms/Image";
 
 import { TopPageImgs } from "../../../constants/ImagesUrl";
 
-import SignInForm from "../../molecules/Forms/SignInForm";
-import SignUpForm from "../../molecules/Forms/SignUpForm";
+import SignInForm from "../../molecules/forms/SignInForm";
+import SignUpForm from "../../molecules/forms/SignUpForm";
 
 interface Props extends React.Attributes {
   currentUser: any;
