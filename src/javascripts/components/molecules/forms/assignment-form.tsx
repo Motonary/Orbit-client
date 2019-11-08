@@ -40,7 +40,7 @@ class AssignmentForm extends React.Component<AssignmentFormProps> {
 
     return (
       <div id="form-on-modal">
-        <div className="form-title">New SubAssignment</div>
+        <div className="form-title">New Assignment</div>
         <Formik
           initialValues={{
             title: "",
@@ -70,8 +70,6 @@ class AssignmentForm extends React.Component<AssignmentFormProps> {
             return errors;
           }}
           onSubmit={(values: CreateAssignmentValues, actions: any) => {
-            this.props.resetSelectedStar();
-            this.props.resetModalStatus();
             this.props
               .createAssignment(
                 values.title,
@@ -82,7 +80,11 @@ class AssignmentForm extends React.Component<AssignmentFormProps> {
                 orbit,
                 project_id
               )
-              .then(() => actions.setSubmitting(false))
+              .then(() => {
+                actions.setSubmitting(false);
+                this.props.resetSelectedStar();
+                this.props.resetModalStatus();
+              })
               .catch(() => actions.setSubmitting(false));
           }}
         >
