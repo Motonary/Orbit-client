@@ -1,14 +1,8 @@
 import styled from "@emotion/styled";
 import * as React from "react";
-import { connect } from "react-redux";
 import anime from "animejs";
 
 import Img from "../atoms/Image";
-import {
-  restoreAssignment,
-  resetSelectedAssignment
-} from "../../actions/assignments";
-import { resetDestroyAction } from "../../actions/common";
 
 interface Props {
   className?: string;
@@ -78,11 +72,4 @@ class Revival extends React.Component<Props, {}> {
 
 const Root = styled.li``;
 
-export default connect(
-  ({ selectedAssignments, selectedDestroyAction, modalOpen }: any) => ({
-    selectedAssignments,
-    selectedDestroyAction,
-    modalOpen
-  }),
-  { restoreAssignment, resetSelectedAssignment, resetDestroyAction }
-)(Revival);
+export default Revival;

@@ -1,19 +1,8 @@
 import styled from "@emotion/styled";
-import React from "react";
-import { connect } from "react-redux";
+import * as React from "react";
 import anime from "animejs";
 
 import Img from "../atoms/Image";
-import {
-  setDestroyAction,
-  resetDestroyAction,
-  resetModalStatus
-} from "../../actions/common";
-import {
-  destroyAssignment,
-  resetSelectedAssignment
-} from "../../actions/assignments";
-
 import { DeleteActions } from "../../constants/ImagesUrl";
 
 interface Props {
@@ -146,23 +135,4 @@ class BlackHole extends React.Component<Props, {}> {
 
 const Root = styled.li``;
 
-export default connect(
-  ({
-    selectedAssignments,
-    destroyedAssignments,
-    selectedDestroyAction,
-    modalOpen
-  }: any) => ({
-    selectedAssignments,
-    destroyedAssignments,
-    selectedDestroyAction,
-    modalOpen
-  }),
-  {
-    setDestroyAction,
-    resetDestroyAction,
-    resetModalStatus,
-    destroyAssignment,
-    resetSelectedAssignment
-  }
-)(BlackHole);
+export default BlackHole;

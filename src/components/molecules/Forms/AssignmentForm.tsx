@@ -1,18 +1,10 @@
 import styled from "@emotion/styled";
 import * as React from "react";
-import { connect } from "react-redux";
 import { Formik } from "formik";
 
 import InputField from "../../atoms/InputField";
 import SelectField from "../../atoms/SelectField";
 import RawButton from "../../atoms/RawButton";
-
-import {
-  setSelectedStar,
-  resetSelectedStar,
-  resetModalStatus
-} from "../../../actions/common";
-import { createAssignment } from "../../../actions/assignments";
 
 interface AssignmentFormProps {
   orbit: string;
@@ -182,7 +174,4 @@ const SubmitBtn = styled(RawButton)`
   cursor: pointer;
 `;
 
-export default connect(
-  ({ selectedStar, currentProject }: any) => ({ selectedStar, currentProject }),
-  { createAssignment, setSelectedStar, resetSelectedStar, resetModalStatus }
-)(AssignmentForm);
+export default AssignmentForm;

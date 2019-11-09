@@ -1,11 +1,8 @@
 import styled from "@emotion/styled";
 import * as React from "react";
-import { connect } from "react-redux";
 import Modal from "react-modal";
 
 import RawButton from "../../atoms/RawButton";
-
-import { resetDestroyAction, resetModalStatus } from "../../../actions/common";
 
 interface Props {
   motionControll: () => void;
@@ -111,10 +108,4 @@ const customStyles = {
   }
 };
 
-export default connect(
-  ({ modalOpen }: any) => ({ modalOpen }),
-  {
-    resetDestroyAction,
-    resetModalStatus
-  }
-)(ConfirmModal);
+export default ConfirmModal;

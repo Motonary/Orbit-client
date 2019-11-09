@@ -1,10 +1,7 @@
 import styled from "@emotion/styled";
 import * as React from "react";
-import { connect } from "react-redux";
 
 import Planet from "./Planet";
-
-import { setSelectedStar, resetSelectedStar } from "../../actions/common";
 
 interface Props {
   planetType: string;
@@ -66,7 +63,4 @@ const _Planet = styled(Planet)`
   }
 `;
 
-export default connect(
-  ({ selectedStar }: any) => ({ selectedStar }),
-  { setSelectedStar, resetSelectedStar }
-)(PlanetList);
+export default PlanetList;

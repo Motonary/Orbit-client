@@ -1,11 +1,8 @@
 import styled from "@emotion/styled";
 import * as React from "react";
-import { connect } from "react-redux";
 import Modal from "react-modal";
 
 import RawButton from "../../atoms/RawButton";
-import { removeFirstVisitFlag } from "../../../actions/users";
-import { resetModalStatus, resetSelectedStar } from "../../../actions/common";
 
 interface Props {
   currentUser: any;
@@ -144,11 +141,4 @@ const customStyles = {
   }
 };
 
-export default connect(
-  null,
-  {
-    removeFirstVisitFlag,
-    resetSelectedStar,
-    resetModalStatus
-  }
-)(TutorialModal);
+export default TutorialModal;

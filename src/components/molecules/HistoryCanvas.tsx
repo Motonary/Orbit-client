@@ -1,9 +1,7 @@
 import styled from "@emotion/styled";
 import * as React from "react";
-import { connect } from "react-redux";
 
 import ProjectPageLink from "./ProjectPageLink";
-import { fetchDestroyedAssignments } from "../../actions/assignments";
 
 interface Props {
   history: any;
@@ -166,7 +164,4 @@ const Title = styled.div`
   color: #fff;
 `;
 
-export default connect(
-  ({ destroyedAssignments }: any) => ({ destroyedAssignments }),
-  { fetchDestroyedAssignments }
-)(HistoryCanvas);
+export default HistoryCanvas;

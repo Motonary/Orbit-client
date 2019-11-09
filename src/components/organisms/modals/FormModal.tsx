@@ -1,13 +1,9 @@
-import styled from "@emotion/styled";
 import * as React from "react";
-import { connect } from "react-redux";
 import Modal from "react-modal";
 
 import AssignmentForm from "../../molecules/Forms/AssignmentForm";
 import SubAssignmentForm from "../../molecules/Forms/SubAssignmentForm";
 import ProjectForm from "../../molecules/Forms/ProjectForm";
-
-import { resetModalStatus, resetSelectedStar } from "../../../actions/common";
 
 interface Props {
   pathname: any;
@@ -87,7 +83,4 @@ const customStyles = {
   }
 };
 
-export default connect(
-  ({ selectedStar, modalOpen }: any) => ({ selectedStar, modalOpen }),
-  { resetModalStatus, resetSelectedStar }
-)(FormModal);
+export default FormModal;

@@ -1,17 +1,9 @@
 import styled from "@emotion/styled";
 import * as React from "react";
-import { connect } from "react-redux";
 import anime from "animejs";
 import Alert from "react-s-alert";
 
 import Img from "../atoms/Image";
-import { resetDestroyAction, resetModalStatus } from "../../actions/common";
-import {
-  destroyAssignment,
-  resetSelectedAssignment
-} from "../../actions/assignments";
-import { destroyProject, resetSelectedProject } from "../../actions/projects";
-
 import { DeleteActions } from "../../constants/ImagesUrl";
 
 interface Props {
@@ -353,26 +345,4 @@ class Missle extends React.Component<Props, {}> {
 
 const Root = styled.li``;
 
-export default connect(
-  ({
-    selectedAssignments,
-    destroyedAssignments,
-    selectedDestroyAction,
-    modalOpen,
-    selectedProject
-  }: any) => ({
-    selectedAssignments,
-    destroyedAssignments,
-    selectedDestroyAction,
-    modalOpen,
-    selectedProject
-  }),
-  {
-    resetDestroyAction,
-    resetModalStatus,
-    destroyAssignment,
-    resetSelectedAssignment,
-    destroyProject,
-    resetSelectedProject
-  }
-)(Missle);
+export default Missle;

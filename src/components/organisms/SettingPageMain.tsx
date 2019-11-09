@@ -1,13 +1,10 @@
 import styled from "@emotion/styled";
 import * as React from "react";
-import { connect } from "react-redux";
 import Alert from "react-s-alert";
 
 import UserImgUpdateForm from "../molecules/UserImageUpdateForm";
 import ProfileUpdateForm from "../molecules/Forms/ProfileUpdateForm";
 import RawButton from "../atoms/RawButton";
-
-import { expireCurrentUser } from "../../actions/users";
 
 interface Props {
   currentUser: any;
@@ -69,7 +66,4 @@ const SignOutBtn = styled(RawButton)`
   cursor: pointer;
 `;
 
-export default connect(
-  null,
-  { expireCurrentUser }
-)(SettingPageMain);
+export default SettingPageMain;

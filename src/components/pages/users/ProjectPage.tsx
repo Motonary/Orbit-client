@@ -1,12 +1,5 @@
 import * as React from "react";
-import { connect } from "react-redux";
 import { Redirect } from "react-router-dom";
-
-import { fetchRevolvingAssignments } from "../../../actions/assignments";
-import {
-  fetchRevolvingProjects,
-  setDefaultProject
-} from "../../../actions/projects";
 
 import { Root } from "./CommonStyleComponents";
 import Header from "../../organisms/Header";
@@ -85,15 +78,4 @@ class ProjectPage extends React.Component<Props, {}> {
   }
 }
 
-export default connect(
-  ({ currentUser, revolvingProjects, currentProject }: any) => ({
-    currentUser,
-    revolvingProjects,
-    currentProject
-  }),
-  {
-    fetchRevolvingAssignments,
-    fetchRevolvingProjects,
-    setDefaultProject
-  }
-)(ProjectPage);
+export default ProjectPage;
