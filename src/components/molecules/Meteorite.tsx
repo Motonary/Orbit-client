@@ -1,7 +1,6 @@
 import styled from "@emotion/styled";
 import * as React from "react";
 import anime from "animejs";
-import Alert from "react-s-alert";
 
 import Img from "../atoms/Image";
 import { DeleteActions } from "../../constants/ImagesUrl";
@@ -128,21 +127,11 @@ class Meteorite extends React.Component<Props, {}> {
   }
 
   showSuccessFlash(successMessage: string) {
-    Alert.success(successMessage, {
-      position: "top-right",
-      effect: "jelly",
-      timeout: 3000,
-      offset: 80
-    });
+    alert(successMessage);
   }
 
   showErrorFlash(errorMessage: string) {
-    Alert.error(errorMessage, {
-      position: "top-right",
-      effect: "jelly",
-      timeout: 3000,
-      offset: 80
-    });
+    alert(errorMessage);
   }
 
   // 削除されたAssignmentIdをcanvasのidから特定し、destroyedAssignmentsに格納

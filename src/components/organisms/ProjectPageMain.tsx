@@ -1,6 +1,5 @@
 import styled from "@emotion/styled";
 import * as React from "react";
-import Alert from "react-s-alert";
 
 import FixedStar from "../molecules/FixedStar";
 import CircleOrbit from "../molecules/CircleOrbit";
@@ -19,7 +18,6 @@ const ProjectPageMain: React.SFC<Props> = ({ currentProject }) => (
       <CircleOrbit orbit="tertius" />
     </ProjectOrits>
     <ProjectBar currentProject={currentProject} />
-    <Alert />
   </Root>
 );
 

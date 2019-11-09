@@ -1,6 +1,5 @@
 import styled from "@emotion/styled";
 import * as React from "react";
-import Alert from "react-s-alert";
 
 import UserImgUpdateForm from "../molecules/UserImageUpdateForm";
 import ProfileUpdateForm from "../molecules/Forms/ProfileUpdateForm";
@@ -28,7 +27,6 @@ const SettingPageMain: React.FC<Props> = ({
       <UserImgUpdateForm currentUser={currentUser} />
       <ProfileUpdateForm history={history} />
       <SignOutBtn onClick={() => onSignOutButtonClick()}>SIGN OUT</SignOutBtn>
-      <Alert />
     </Root>
   );
 };

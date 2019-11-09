@@ -1,6 +1,5 @@
 import styled from "@emotion/styled";
 import * as React from "react";
-import Alert from "react-s-alert";
 
 import Img from "../atoms/Image";
 import { PlanetImgs } from "../../constants/ImagesUrl";
@@ -46,12 +45,7 @@ const Planet: React.FC<Props> = ({
   }
 
   function showErrorFlash(errorMessage: string) {
-    Alert.error(errorMessage, {
-      position: "top-right",
-      effect: "jelly",
-      timeout: 3000,
-      offset: 80
-    });
+    alert(errorMessage);
   }
 
   function onSelected(e: MouseEvent) {

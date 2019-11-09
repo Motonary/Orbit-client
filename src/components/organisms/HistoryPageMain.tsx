@@ -1,6 +1,5 @@
 import styled from "@emotion/styled";
 import * as React from "react";
-import Alert from "react-s-alert";
 
 import HistoryCanvas from "../molecules/HistoryCanvas";
 import StoredPlanetList from "../molecules/StoredPlanetList";
@@ -14,7 +13,6 @@ const HistoryPageMain: React.SFC<Props> = ({ history, match }) => (
   <Root>
     <HistoryCanvas history={history} match={match} />
     <StoredPlanetList />
-    <Alert />
   </Root>
 );
 
