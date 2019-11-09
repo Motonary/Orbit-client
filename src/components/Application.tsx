@@ -1,21 +1,23 @@
+import { LocationProvider } from "@reach/router";
 import * as React from "react";
 
+import AuthenticateSessionRouter from "./common/AuthenticateSessionRouter";
+import SignedInRouter from "./common/SignedInRouter";
+import SignedOutRouter from "./common/SignedOutRouter";
+
 import GlobalStyle from "./common/GlobalStyle";
-import UserOnly from "./routes/SignedInRouter";
-import GuestOnly from "./routes/SignedOutRouter";
+import TopPage from "./pages/TopPage";
 
 const Application: React.FC = () => (
   <>
     <GlobalStyle />
 
-    <Router>
-      <Switch>
-        <Route path="/guests" component={GuestOnly} />
-        <Route path="/users" component={UserOnly} />
-        <Route exact path="/" render={() => <Redirect to="/guests" />} />
-        <Route render={() => <h2>404 Not Found</h2>} />
-      </Switch>
-    </Router>
+    <LocationProvider>
+      <AuthenticateSessionRouter
+        renderSignedIn={() => <SignedInRouter />}
+        renderSignedOut={() => <SignedOutRouter renderPage={() => <TopPage />}/>}
+      />
+    </LocationProvider>
   </>
 );
 
