@@ -1,6 +1,5 @@
 import styled from "@emotion/styled";
 import * as React from "react";
-import { Redirect } from "react-router-dom";
 import Alert from "react-s-alert";
 
 import MypageUserInfo from "../molecules/UserInfo";
