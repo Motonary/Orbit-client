@@ -1,6 +1,5 @@
 import styled from "@emotion/styled";
 import * as React from "react";
-import Alert from "react-s-alert";
 
 import MypageUserInfo from "../molecules/UserInfo";
 import MypageOrbit from "../molecules/MypageOrbit";
@@ -26,7 +25,6 @@ const MyPageMain: React.SFC<MyPageMainProps> = ({
     <Root>
       <MypageUserInfo currentUser={currentUser} />
       <MypageOrbit history={history} match={match} />
-      <Alert />
     </Root>
   );
 };

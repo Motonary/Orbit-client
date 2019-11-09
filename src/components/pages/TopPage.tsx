@@ -1,7 +1,6 @@
 import styled from "@emotion/styled";
 import * as React from "react";
 
-import Alert from "react-s-alert";
 import Button from "../atoms/Button";
 import Img from "../atoms/Image";
 
@@ -32,7 +31,6 @@ const TopPage: React.FC<Props> = ({ currentUser, pathname, history }) => {
           <Img alt="sign-in" width="170px" src={TopPageImgs.signIn} />
         )}
       </_Button>
-      <Alert />
       <Logo>
         <Img src={TopPageImgs.logo} alt="logo" />
       </Logo>
