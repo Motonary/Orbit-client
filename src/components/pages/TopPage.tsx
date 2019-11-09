@@ -2,13 +2,13 @@ import styled from "@emotion/styled";
 import * as React from "react";
 
 import Alert from "react-s-alert";
-import Button from "../../atoms/Button";
-import Img from "../../atoms/Image";
+import Button from "../atoms/Button";
+import Img from "../atoms/Image";
 
-import { TopPageImgs } from "../../../constants/ImagesUrl";
+import { TopPageImgs } from "../../constants/ImagesUrl";
 
-import SignInForm from "../../molecules/Forms/SignInForm";
-import SignUpForm from "../../molecules/Forms/SignUpForm";
+import SignInForm from "../molecules/Forms/SignInForm";
+import SignUpForm from "../molecules/Forms/SignUpForm";
 
 interface Props extends React.Attributes {
   currentUser: any;

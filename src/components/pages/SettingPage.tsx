@@ -1,9 +1,9 @@
 import * as React from "react";
 
 import { Root } from "./CommonStyleComponents";
-import Header from "../../organisms/Header";
-import SettingPageMain from "../../organisms/SettingPageMain";
-import Footer from "../../organisms/Footer";
+import Header from "../organisms/Header";
+import SettingPageMain from "../organisms/SettingPageMain";
+import Footer from "../organisms/Footer";
 
 interface Props {
   currentUser: any;

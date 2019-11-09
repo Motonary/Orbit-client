@@ -13,6 +13,7 @@ RUN npm install
 COPY . /usr/app
 
 # expose port of container to host machine
-# EXPOSE 4000
+EXPOSE 4000
+EXPOSE 6006
 
 CMD ["npm", "run", "watch"]

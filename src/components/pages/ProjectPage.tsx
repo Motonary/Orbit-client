@@ -1,10 +1,9 @@
 import * as React from "react";
-import { Redirect } from "react-router-dom";
 
 import { Root } from "./CommonStyleComponents";
-import Header from "../../organisms/Header";
-import ProjectPageMain from "../../organisms/ProjectPageMain";
-import Footer from "../../organisms/Footer";
+import Header from "../organisms/Header";
+import ProjectPageMain from "../organisms/ProjectPageMain";
+import Footer from "../organisms/Footer";
 
 interface Props {
   currentUser: any;
