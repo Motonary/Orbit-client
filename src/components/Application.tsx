@@ -1,16 +1,16 @@
 import * as React from "react";
-import ReactDOM from "react-dom";
 import {
   BrowserRouter as Router,
   Route,
   Switch,
   Redirect
 } from "react-router-dom";
-import Main from "./components/index/Main";
-import UserOnly from "./components/index/UserOnly";
-import GuestOnly from "./components/index/GuestOnly";
 
-ReactDOM.render(
+import Main from "./index/Main";
+import UserOnly from "./index/UserOnly";
+import GuestOnly from "./index/GuestOnly";
+
+const Application: React.FC = () => (
   <Router>
     <Main>
       <Switch>
@@ -20,6 +20,7 @@ ReactDOM.render(
         <Route render={() => <h2>404 Not Found</h2>} />
       </Switch>
     </Main>
-  </Router>,
-  document.getElementById("app")
+  </Router>
 );
+
+export default Application;
