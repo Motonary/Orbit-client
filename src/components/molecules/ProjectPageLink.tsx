@@ -1,15 +1,8 @@
 import styled from "@emotion/styled";
 import * as React from "react";
-import { connect } from "react-redux";
 
 import Img from "../atoms/Image";
 import { shiver } from "../common/Keyframes";
-
-import {
-  setCurrentProject,
-  fetchRevolvingProjects
-} from "../../actions/projects";
-
 import { PlanetImgs } from "../../constants/ImagesUrl";
 
 interface Props {
@@ -77,7 +70,4 @@ const Planet = styled.div`
   cursor: pointer;
 `;
 
-export default connect(
-  ({ revolvingProjects }: any) => ({ revolvingProjects }),
-  { setCurrentProject, fetchRevolvingProjects }
-)(ProjectPageLink);
+export default ProjectPageLink;

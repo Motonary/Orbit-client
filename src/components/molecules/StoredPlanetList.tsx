@@ -1,6 +1,5 @@
 import styled from "@emotion/styled";
 import * as React from "react";
-import { connect } from "react-redux";
 
 import Planet from "./Planet";
 import PopupBox from "../atoms/PopupBox";
@@ -192,10 +191,4 @@ const Day = styled.div`
   background-color: #0d171f;
 `;
 
-export default connect(
-  ({ selectedAssignments, destroyedAssignments }: any) => ({
-    selectedAssignments,
-    destroyedAssignments
-  }),
-  {}
-)(StoredPlanetList);
+export default StoredPlanetList;

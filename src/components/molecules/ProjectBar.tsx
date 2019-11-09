@@ -1,10 +1,7 @@
 import styled from "@emotion/styled";
 import * as React from "react";
-import { connect } from "react-redux";
 
 import FixedStarInList from "../atoms/FixedStarInList";
-import { fetchRevolvingAssignments } from "../../actions/assignments";
-import { changeCurrentProject } from "../../actions/projects";
 
 interface Props {
   currentProject: any;
@@ -72,7 +69,4 @@ const _FixedStarInList = styled(FixedStarInList)`
   cursor: pointer;
 `;
 
-export default connect(
-  ({ revolvingProjects }: any) => ({ revolvingProjects }),
-  { changeCurrentProject, fetchRevolvingAssignments }
-)(ProjectBar);
+export default ProjectBar;

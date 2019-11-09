@@ -1,17 +1,10 @@
 import styled from "@emotion/styled";
 import * as React from "react";
-import { connect } from "react-redux";
 
 import PopupProjectCard from "../atoms/PopupProjectCard";
 import Planet from "./Planet";
 import { top, right, left, bottom } from "../common/Position";
 import { rotate } from "../common/Keyframes";
-
-import {
-  setCurrentProject,
-  fetchRevolvingProjects
-} from "../../actions/projects";
-import { setModalStatus } from "../../actions/common";
 
 interface Props {
   history: any;
@@ -265,7 +258,4 @@ const _Planet = styled(Planet)`
   }
 `;
 
-export default connect(
-  ({ revolvingProjects, modalOpen }: any) => ({ revolvingProjects, modalOpen }),
-  { setModalStatus, setCurrentProject, fetchRevolvingProjects }
-)(MypageOrbit);
+export default MypageOrbit;

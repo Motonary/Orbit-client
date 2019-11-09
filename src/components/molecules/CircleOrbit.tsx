@@ -1,17 +1,10 @@
 import styled from "@emotion/styled";
 import * as React from "react";
-import { connect } from "react-redux";
 
 import PopupBox from "../atoms/PopupBox";
 import Planet from "./Planet";
 import { top, right, left, bottom } from "../common/Position";
 import { rotate, shiver } from "../common/Keyframes";
-
-import {
-  setSelectedStar,
-  resetSelectedStar,
-  setModalStatus
-} from "../../actions/common";
 
 interface Props {
   orbit: any;
@@ -461,21 +454,4 @@ const DestroyCanvas = styled.canvas`
   left: 0;
 `;
 
-export default connect(
-  ({
-    revolvingAssignments,
-    selectedAssignments,
-    selectedStar,
-    modalOpen
-  }: any) => ({
-    revolvingAssignments,
-    selectedAssignments,
-    selectedStar,
-    modalOpen
-  }),
-  {
-    setSelectedStar,
-    resetSelectedStar,
-    setModalStatus
-  }
-)(CircleOrbit);
+export default CircleOrbit;

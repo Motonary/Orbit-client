@@ -7,8 +7,8 @@ import Img from "../atoms/Image";
 import { DeleteActions } from "../../constants/ImagesUrl";
 
 interface Props {
-  className?: string;
   icon: string;
+  className?: string;
   history: any;
   currentUser: any;
   motionControll: () => void;
@@ -28,7 +28,7 @@ interface Props {
   resetSelectedProject: any;
 }
 
-class Missle extends React.Component<Props, {}> {
+class Meteorite extends React.Component<Props, {}> {
   componentDidUpdate(/*prevProps, prevState*/) {
     const {
       selectedAssignments,
@@ -40,7 +40,7 @@ class Missle extends React.Component<Props, {}> {
       return;
     }
     if (modalOpen !== "") return;
-    if (selectedDestroyAction !== "Missile") return;
+    if (selectedDestroyAction !== "Meteorite") return;
     this.onIgniteDestroyAnimation();
   }
 
@@ -88,7 +88,7 @@ class Missle extends React.Component<Props, {}> {
     const yT: number = clientRectTarget.top;
 
     // 目標惑星中心までの距離(px)とArctanへの引数
-    let disX: number = xT - xM;
+    const disX: number = xT - xM;
     const disY: number = yT - yM;
     let arcvalue: number;
     if (disX < 0) {
@@ -108,13 +108,13 @@ class Missle extends React.Component<Props, {}> {
       },
       translateX: {
         value: disX - TargetWidth,
-        duration: 1780,
+        duration: 1700,
         easing: "easeInExpo",
         delay: 500
       },
       traslateY: {
         value: disY + TargetHeight,
-        duration: 1780,
+        duration: 1700,
         easing: "easeInExpo",
         delay: 500
       }
@@ -148,11 +148,12 @@ class Missle extends React.Component<Props, {}> {
   // 削除されたAssignmentIdをcanvasのidから特定し、destroyedAssignmentsに格納
   removeAssignmentData(parent: any) {
     parent.forEach((destroyDom: any) => {
-      const destroyedCvs: any = destroyDom.children[1];
-      const destroyedAssignmentId: string = destroyedCvs.id.split("-")[0];
+      let destroyedCvs: any = destroyDom.children[1];
+      let destroyedAssignmentId: string = destroyedCvs.id.split("-")[0];
       this.props.destroyAssignment(destroyedAssignmentId);
     });
   }
+
   // 削除されたProjectIdをcanvasのidから特定し、destroyedProjectに格納
   removeProjectData(destroyDom: any) {
     const destroyedCvs: any = destroyDom[0].firstChild;
@@ -176,13 +177,13 @@ class Missle extends React.Component<Props, {}> {
     const target_ids: any = selectedPlanetIds;
     const isProject: boolean = this.props.selectedProject.length !== 0;
 
-    const parent: any = [];
-    const canvasEl: any = [];
-    const ctx: any = [];
+    let parent: any = [];
+    let canvasEl: any = [];
+    let ctx: any = [];
 
     if (target_ids.length > 0) {
       target_ids.forEach((id: string) => {
-        const tar: any = document.getElementById(id);
+        let tar: any = document.getElementById(id);
         parent.push(tar.parentNode);
         canvasEl.push(tar);
         ctx.push(tar.getContext("2d"));
@@ -231,11 +232,6 @@ class Missle extends React.Component<Props, {}> {
     function removeImg() {
       parent.forEach((doc: any) => {
         const child: any = isProject ? doc.children[0] : doc.children[1];
-        if (!isProject) {
-          if (child.classList.contains("warning-animation")) {
-            child.classList.remove("warning-animation");
-          }
-        }
         doc.removeChild(child);
       });
     }
@@ -248,9 +244,9 @@ class Missle extends React.Component<Props, {}> {
     }
 
     function setParticuleDirection(p: any) {
-      const angle: any = (anime.random(0, 360) * Math.PI) / 180;
-      const value: any = anime.random(50, 180);
-      const radius: any = [-1, 1][anime.random(0, 1)] * value;
+      let angle: any = (anime.random(0, 360) * Math.PI) / 180;
+      let value: any = anime.random(50, 180);
+      let radius: any = [-1, 1][anime.random(0, 1)] * value;
       return {
         x: p.x + radius * Math.cos(angle),
         y: p.y + radius * Math.sin(angle)
@@ -282,7 +278,7 @@ class Missle extends React.Component<Props, {}> {
     }
 
     function animateParticules(x: number, y: number) {
-      const particules = [];
+      let particules = [];
       for (let i = 0; i < numberOfParticules; i++) {
         particules.push(createParticule(x, y));
       }
@@ -322,13 +318,12 @@ class Missle extends React.Component<Props, {}> {
     animateParticules(pointerX, pointerY);
     this.props.resetDestroyAction();
     this.props.resetSelectedAssignment();
-    this.props.resetSelectedProject();
-    this.props.motionControll();
     if (isProject) {
       this.removeProjectData(parent);
     } else {
       this.removeAssignmentData(parent);
     }
+    this.props.motionControll();
   }
 
   render() {
@@ -345,4 +340,4 @@ class Missle extends React.Component<Props, {}> {
 
 const Root = styled.li``;
 
-export default Missle;
+export default Meteorite;
