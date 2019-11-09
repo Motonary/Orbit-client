@@ -1,6 +1,5 @@
 import * as React from "react";
 import { Route, Switch, Redirect } from "react-router-dom";
-import { connect } from "react-redux";
 import Mypage from "../pages/users/MyPage";
 import ProjectPage from "../pages/users/ProjectPage";
 import HistoryPage from "../pages/users/HistroyPage";
@@ -42,4 +41,4 @@ class UserOnly extends React.Component<Props, {}> {
   }
 }
 
-export default connect(({ currentUser }: any) => ({ currentUser }))(UserOnly);
+export default UserOnly;

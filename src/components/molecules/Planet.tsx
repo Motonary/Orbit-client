@@ -1,15 +1,8 @@
 import styled from "@emotion/styled";
 import * as React from "react";
-import { connect } from "react-redux";
 import Alert from "react-s-alert";
 
 import Img from "../atoms/Image";
-import {
-  selectAssignment,
-  disselectAssignment
-} from "../../actions/assignments";
-import { selectProject, disselectProject } from "../../actions/projects";
-
 import { PlanetImgs } from "../../constants/ImagesUrl";
 
 interface Props {
@@ -146,10 +139,4 @@ const CheckMark = styled.div`
   transform: translateY(-50%) rotate(45deg);
 `;
 
-export default connect(
-  ({ selectedProject, selectedAssignments }: any) => ({
-    selectedProject,
-    selectedAssignments
-  }),
-  { selectAssignment, disselectAssignment, selectProject, disselectProject }
-)(Planet);
+export default Planet;

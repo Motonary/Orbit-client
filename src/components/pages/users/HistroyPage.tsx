@@ -1,5 +1,4 @@
 import * as React from "react";
-import { connect } from "react-redux";
 
 import { Root } from "./CommonStyleComponents";
 import Header from "../../organisms/Header";
@@ -26,6 +25,4 @@ const HistoryPage: React.FC<Props> = ({
   </Root>
 );
 
-export default connect(({ currentUser }: any) => ({ currentUser }))(
-  HistoryPage
-);
+export default HistoryPage;

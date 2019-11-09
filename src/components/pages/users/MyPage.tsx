@@ -1,12 +1,9 @@
 import * as React from "react";
-import { connect } from "react-redux";
 
 import { Root } from "./CommonStyleComponents";
 import Header from "../../organisms/Header";
 import MyPageMain from "../../organisms/MyPageMain";
 import Footer from "../../organisms/Footer";
-
-import { fetchRevolvingProjects } from "../../../actions/projects";
 
 interface Props {
   currentUser: any;
@@ -48,7 +45,4 @@ class MyPage extends React.Component<Props, {}> {
   }
 }
 
-export default connect(
-  ({ currentUser }: any) => ({ currentUser }),
-  { fetchRevolvingProjects }
-)(MyPage);
+export default MyPage;

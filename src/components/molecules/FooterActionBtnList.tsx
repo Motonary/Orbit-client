@@ -1,14 +1,10 @@
 import styled from "@emotion/styled";
 import * as React from "react";
-import { connect } from "react-redux";
 
 import Revival from "./Revival";
 import Meteorite from "./Meteorite";
 import Missle from "./Missle";
 import BlackHole from "./BlackHole";
-
-import { setModalStatus, setDestroyAction } from "../../actions/common";
-
 import { ActionIcons } from "../../constants/ImagesUrl";
 
 interface Props {
@@ -154,7 +150,4 @@ const _BlackHole = styled(BlackHole)<{ isShow: boolean; transform: boolean }>`
       : ""}
 `;
 
-export default connect(
-  ({ modalOpen, selectedProject }: any) => ({ modalOpen, selectedProject }),
-  { setModalStatus, setDestroyAction }
-)(FooterActionBtnList);
+export default FooterActionBtnList;

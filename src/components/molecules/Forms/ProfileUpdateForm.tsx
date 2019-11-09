@@ -1,12 +1,9 @@
 import styled from "@emotion/styled";
 import * as React from "react";
-import { connect } from "react-redux";
 import { Formik } from "formik";
 
 import InputField from "../../atoms/InputField";
 import RawButton from "../../atoms/RawButton";
-
-import { updateProfile } from "../../../actions/users";
 
 interface Props {
   updateProfile: any;
@@ -160,7 +157,4 @@ const SubmitBtn = styled(RawButton)`
   cursor: pointer;
 `;
 
-export default connect(
-  null,
-  { updateProfile }
-)(ProfileUpdateForm);
+export default ProfileUpdateForm;

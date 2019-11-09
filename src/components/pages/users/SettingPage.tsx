@@ -1,5 +1,4 @@
 import * as React from "react";
-import { connect } from "react-redux";
 
 import { Root } from "./CommonStyleComponents";
 import Header from "../../organisms/Header";
@@ -20,6 +19,4 @@ const SettingPage: React.FC<Props> = ({ currentUser, location, history }) => (
   </Root>
 );
 
-export default connect(({ currentUser }: any) => ({ currentUser }))(
-  SettingPage
-);
+export default SettingPage;

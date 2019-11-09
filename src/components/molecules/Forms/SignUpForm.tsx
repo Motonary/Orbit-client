@@ -1,12 +1,9 @@
 import styled from "@emotion/styled";
 import * as React from "react";
-import { connect } from "react-redux";
 import { Formik } from "formik";
 
 import InputField from "../../atoms/InputField";
 import RawButton from "../../atoms/RawButton";
-
-import { createUser } from "../../../actions/users";
 
 interface SignUpFormProps {
   history: any;
@@ -177,7 +174,4 @@ const SubmitBtn = styled(RawButton)`
   cursor: pointer;
 `;
 
-export default connect(
-  null,
-  { createUser }
-)(SignUpForm);
+export default SignUpForm;

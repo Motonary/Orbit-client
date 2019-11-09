@@ -1,9 +1,7 @@
 import styled from "@emotion/styled";
 import * as React from "react";
-import { connect } from "react-redux";
 
 import Img from "../atoms/Image";
-import { updateUserImg } from "../../actions/users";
 
 interface Props {
   currentUser: any;
@@ -81,7 +79,4 @@ const SelectButton = styled.label`
   cursor: pointer;
 `;
 
-export default connect(
-  null,
-  { updateUserImg }
-)(UserImgUpdater);
+export default UserImgUpdater;

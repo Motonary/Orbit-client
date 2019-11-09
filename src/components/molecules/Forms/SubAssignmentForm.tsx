@@ -1,19 +1,10 @@
 import styled from "@emotion/styled";
 import * as React from "react";
-import { bindActionCreators } from "redux";
-import { connect } from "react-redux";
 import { Formik } from "formik";
 
 import InputField from "../../atoms/InputField";
 import SelectField from "../../atoms/SelectField";
 import RawButton from "../../atoms/RawButton";
-
-import {
-  setSelectedStar,
-  resetSelectedStar,
-  resetModalStatus
-} from "../../../actions/common";
-import { createSubAssignment } from "../../../actions/subassignmnets";
 
 interface Props {
   assignmentId: string;
@@ -122,10 +113,6 @@ class SubAssignmentForm extends React.Component<Props, {}> {
   }
 }
 
-const mapStateToProps = ({ selectedStar, currentProject }: any) => {
-  return { selectedStar, currentProject };
-};
-
 const Root = styled.div`
   display: block;
   width: 100%;
@@ -186,19 +173,4 @@ const SubmitBtn = styled(RawButton)`
   cursor: pointer;
 `;
 
-const mapDispatchToProps = (dispatch: any) => {
-  return bindActionCreators(
-    {
-      setSelectedStar,
-      resetSelectedStar,
-      resetModalStatus,
-      createSubAssignment
-    },
-    dispatch
-  );
-};
-
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(SubAssignmentForm);
+export default SubAssignmentForm;
