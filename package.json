@@ -83,7 +83,7 @@
     "husky": "^1.2.1",
     "identity-obj-proxy": "^3.0.0",
     "jest": "^23.6.0",
-    "lint-staged": "^8.0.5",
+    "lint-staged": "^13.2.2",
     "node-sass": "^4.9.4",
     "prettier": "1.15.2",
     "react-hot-loader": "^4.3.8",
